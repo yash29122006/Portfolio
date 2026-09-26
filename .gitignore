@@ -1,0 +1,64 @@
+# ==========================================
+# Root Workspace / Monorepo Git Ignore
+# ==========================================
+
+# OS & System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Global IDEs & Editors
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/mcp.json
+*.sublime-workspace
+*.sublime-project
+*.swp
+*.swo
+*~
+*.bak
+
+# Environment Variables & Secrets
+.env
+.env.local
+.env.*.local
+*.env
+
+# Logs & Temp
+*.log
+logs/
+*.tmp
+*.temp
+
+# ------------------------------------------
+# Frontend (portfolio-frontend)
+# ------------------------------------------
+portfolio-frontend/dist/
+portfolio-frontend/.dist/
+portfolio-frontend/node_modules/
+portfolio-frontend/.angular/
+portfolio-frontend/.angular/cache/
+portfolio-frontend/.sass-cache/
+portfolio-frontend/coverage/
+
+# ------------------------------------------
+# Backend (yash)
+# ------------------------------------------
+yash/target/
+yash/build/
+yash/.mvn/wrapper/maven-wrapper.jar
+yash/*.hprof
+yash/hs_err_pid*
+yash/replay_pid*
+yash/*.db
+yash/*.mv.db
+yash/*.trace.db

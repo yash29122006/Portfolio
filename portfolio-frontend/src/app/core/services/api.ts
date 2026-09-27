@@ -18,7 +18,7 @@ export class Api {
 
   private http = inject(HttpClient);
 
-  private readonly baseUrl = 'https://portfolio-am21.onrender.com/api';
+  private readonly baseUrl = 'https://portfolio-am2l.onrender.com/api';
 
 
   // =========================================================

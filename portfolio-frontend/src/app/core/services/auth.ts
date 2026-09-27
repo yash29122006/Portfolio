@@ -14,8 +14,7 @@ export class Auth {
 
   private http = inject(HttpClient);
 
-  private readonly baseUrl =
-  'https://portfolio-am21.onrender.com/api/auth';
+  private readonly baseUrl = 'https://portfolio-am2l.onrender.com/api/auth';
   private readonly tokenKey = 'portfolio_token';
 
   login(credentials: LoginRequest): Observable<LoginResponse> {

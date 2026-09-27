@@ -4,12 +4,14 @@ import {
   inject
 } from '@angular/core';
 
+import { RouterLink } from '@angular/router';
+
 import { Api } from '../../../core/services/api';
 import { Project } from '../../../models/project.model';
 
 @Component({
   selector: 'app-projects',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './projects.html',
   styleUrl: './projects.css'
 })

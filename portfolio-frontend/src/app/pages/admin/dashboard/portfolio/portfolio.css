@@ -1,0 +1,227 @@
+.portfolio-admin {
+  max-width: 850px;
+}
+
+
+/* Header */
+
+.page-header {
+  margin-bottom: 30px;
+}
+
+.back-link {
+  display: inline-block;
+
+  margin-bottom: 20px;
+
+  color: #777785;
+
+  font-size: 0.8rem;
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: #e0248a;
+}
+
+.page-label {
+  margin: 0 0 8px;
+
+  color: #e0248a;
+
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.page-header h2 {
+  margin: 0;
+
+  font-size: 1.8rem;
+  line-height: 1.3;
+}
+
+.page-description {
+  margin: 9px 0 0;
+
+  color: #777785;
+
+  font-size: 0.85rem;
+}
+
+
+/* State */
+
+.state-card {
+  padding: 30px;
+
+  border: 1px solid #202025;
+  border-radius: 14px;
+
+  background: #0f0f12;
+
+  color: #858591;
+
+  font-size: 0.85rem;
+}
+
+
+/* Form */
+
+.portfolio-form {
+  padding: 30px;
+
+  border: 1px solid #202025;
+  border-radius: 16px;
+
+  background: #0f0f12;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+
+  gap: 9px;
+
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  color: #d7d7df;
+
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+
+  padding: 13px 14px;
+
+  border: 1px solid #26262c;
+  border-radius: 8px;
+
+  outline: none;
+
+  background: #08080a;
+  color: #ffffff;
+
+  font-size: 0.9rem;
+
+  transition: border-color 0.2s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #62626d;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #e0248a;
+}
+
+.form-group textarea {
+  resize: vertical;
+
+  min-height: 180px;
+}
+
+.field-error {
+  color: #ff6b6b;
+
+  font-size: 0.72rem;
+}
+
+
+/* Messages */
+
+.success-message {
+  margin-bottom: 20px;
+
+  padding: 11px 13px;
+
+  border: 1px solid rgba(102, 217, 138, 0.25);
+  border-radius: 8px;
+
+  background: rgba(102, 217, 138, 0.07);
+
+  color: #66d98a;
+
+  font-size: 0.8rem;
+}
+
+.error-message {
+  margin-bottom: 20px;
+
+  padding: 11px 13px;
+
+  border: 1px solid rgba(255, 107, 107, 0.25);
+  border-radius: 8px;
+
+  background: rgba(255, 107, 107, 0.07);
+
+  color: #ff6b6b;
+
+  font-size: 0.8rem;
+}
+
+
+/* Button */
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.save-button {
+  padding: 12px 22px;
+
+  border: 1px solid #e0248a;
+  border-radius: 8px;
+
+  background: #e0248a;
+  color: #ffffff;
+
+  font-size: 0.82rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.save-button:hover:not(:disabled) {
+  background: #c41574;
+}
+
+.save-button:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+}
+
+
+/* Responsive */
+
+@media (max-width: 600px) {
+
+  .portfolio-form {
+    padding: 22px;
+  }
+
+  .form-actions {
+    justify-content: stretch;
+  }
+
+  .save-button {
+    width: 100%;
+  }
+
+}

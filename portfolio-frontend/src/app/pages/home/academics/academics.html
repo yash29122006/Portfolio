@@ -1,0 +1,94 @@
+<section class="academics-section" id="academics">
+
+  <div class="section-container">
+
+    <div class="section-heading">
+
+      <p class="section-label">
+        ACADEMICS
+      </p>
+
+      <h2>
+        My educational
+        <span>journey.</span>
+      </h2>
+
+      <p class="section-description">
+        My academic background has given me a strong foundation
+        in computer engineering and core computer science concepts.
+      </p>
+
+    </div>
+
+
+    <div class="academic-timeline">
+
+      @for (academic of academics; track academic.id) {
+
+        <article class="academic-card">
+
+          <div class="timeline-marker">
+            <span></span>
+          </div>
+
+
+          <div class="academic-content">
+
+            <div class="academic-header">
+
+              <div>
+
+                <p class="academic-period">
+                  {{ academic.passingYear }}
+                </p>
+
+                <h3>
+                  {{ academic.degree }}
+                </h3>
+
+              </div>
+
+
+              <div class="grade">
+
+                <span>
+                  Grade
+                </span>
+
+                <strong>
+                  {{ academic.grade }}
+                </strong>
+
+              </div>
+
+            </div>
+
+
+            <p class="institution">
+              {{ academic.institutionName }}
+            </p>
+
+          </div>
+
+        </article>
+
+      }
+
+    </div>
+
+
+    @if (academics.length === 0) {
+
+      <div class="empty-state">
+
+        <p>
+          Academic information is currently unavailable.
+        </p>
+
+      </div>
+
+    }
+
+  </div>
+
+</section>

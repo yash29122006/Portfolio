@@ -1,0 +1,319 @@
+<section class="academics-admin">
+
+  <div class="page-header">
+
+    <div>
+
+      <a
+        routerLink="/admin/dashboard"
+        class="back-link">
+        ← Dashboard
+      </a>
+
+      <p class="page-label">
+        ACADEMICS
+      </p>
+
+      <h2>
+        Academic Details
+      </h2>
+
+      <p class="page-description">
+        Manage the academic qualifications displayed on your portfolio.
+      </p>
+
+    </div>
+
+    <button
+      type="button"
+      class="add-button"
+      (click)="startAdd()">
+
+      + Add Academic
+
+    </button>
+
+  </div>
+
+
+  @if (successMessage) {
+
+    <div class="success-message">
+      {{ successMessage }}
+    </div>
+
+  }
+
+
+  @if (errorMessage) {
+
+    <div class="error-message">
+      {{ errorMessage }}
+    </div>
+
+  }
+
+
+  <!-- Form -->
+
+  <div class="form-card">
+
+    <div class="form-heading">
+
+      <h3>
+        {{ isEditing ? 'Edit Academic Record' : 'Add Academic Record' }}
+      </h3>
+
+      <p>
+        {{ isEditing
+          ? 'Update the selected academic record.'
+          : 'Add a new academic qualification.'
+        }}
+      </p>
+
+    </div>
+
+
+    <form
+      [formGroup]="academicForm"
+      (ngSubmit)="saveAcademic()">
+
+      <div class="form-grid">
+
+        <div class="form-group full-width">
+
+          <label for="institutionName">
+            Institution Name
+          </label>
+
+          <input
+            id="institutionName"
+            type="text"
+            formControlName="institutionName"
+            placeholder="e.g. Thakur College of Engineering and Technology">
+
+          @if (
+            academicForm.controls.institutionName.touched &&
+            academicForm.controls.institutionName.invalid
+          ) {
+
+            <small class="field-error">
+              Institution name is required.
+            </small>
+
+          }
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="degree">
+            Degree / Qualification
+          </label>
+
+          <input
+            id="degree"
+            type="text"
+            formControlName="degree"
+            placeholder="e.g. Bachelor of Computer Engineering">
+
+          @if (
+            academicForm.controls.degree.touched &&
+            academicForm.controls.degree.invalid
+          ) {
+
+            <small class="field-error">
+              Degree is required.
+            </small>
+
+          }
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="grade">
+            Grade / Percentage
+          </label>
+
+          <input
+            id="grade"
+            type="text"
+            formControlName="grade"
+            placeholder="e.g. SGPA 9.38">
+
+          @if (
+            academicForm.controls.grade.touched &&
+            academicForm.controls.grade.invalid
+          ) {
+
+            <small class="field-error">
+              Grade is required.
+            </small>
+
+          }
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="passingYear">
+            Passing Year
+          </label>
+
+          <input
+            id="passingYear"
+            type="number"
+            formControlName="passingYear">
+
+          @if (
+            academicForm.controls.passingYear.touched &&
+            academicForm.controls.passingYear.invalid
+          ) {
+
+            <small class="field-error">
+              Enter a valid year between 1900 and 2100.
+            </small>
+
+          }
+
+        </div>
+
+      </div>
+
+
+      <div class="form-actions">
+
+        @if (isEditing) {
+
+          <button
+            type="button"
+            class="cancel-button"
+            (click)="cancelEdit()">
+            Cancel
+          </button>
+
+        }
+
+        <button
+          type="submit"
+          class="save-button"
+          [disabled]="isSaving">
+
+          @if (isSaving) {
+            Saving...
+          } @else if (isEditing) {
+            Update Record
+          } @else {
+            Add Record
+          }
+
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+
+  <!-- Records -->
+
+  <div class="records-section">
+
+    <div class="records-heading">
+
+      <h3>
+        Existing Records
+      </h3>
+
+      <span>
+        {{ academics.length }} record(s)
+      </span>
+
+    </div>
+
+
+    @if (isLoading) {
+
+      <div class="state-card">
+        Loading academic records...
+      </div>
+
+    }
+
+
+    @if (!isLoading && academics.length === 0) {
+
+      <div class="state-card">
+        No academic records found.
+      </div>
+
+    }
+
+
+    @if (!isLoading && academics.length > 0) {
+
+      <div class="records-list">
+
+        @for (academic of academics; track academic.id) {
+
+          <article class="academic-card">
+
+            <div class="academic-content">
+
+              <h4>
+                {{ academic.institutionName }}
+              </h4>
+
+              <p class="degree">
+                {{ academic.degree }}
+              </p>
+
+              <div class="academic-meta">
+
+                <span>
+                  {{ academic.grade }}
+                </span>
+
+                <span>
+                  {{ academic.passingYear }}
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="card-actions">
+
+              <button
+                type="button"
+                class="edit-button"
+                (click)="startEdit(academic)">
+                Edit
+              </button>
+
+              <button
+                type="button"
+                class="delete-button"
+                (click)="deleteAcademic(academic)">
+                Delete
+              </button>
+
+            </div>
+
+          </article>
+
+        }
+
+      </div>
+
+    }
+
+  </div>
+
+</section>

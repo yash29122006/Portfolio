@@ -1,0 +1,144 @@
+<section class="admin-page">
+
+  <div class="page-header">
+
+    <div>
+      <p class="eyebrow">Admin CMS</p>
+
+      <h1>Messages</h1>
+
+      <p class="page-description">
+        View messages submitted through your portfolio contact form.
+      </p>
+    </div>
+
+  </div>
+
+
+  <!-- Messages -->
+
+  @if (successMessage) {
+    <div class="alert success">
+      {{ successMessage }}
+    </div>
+  }
+
+  @if (errorMessage) {
+    <div class="alert error">
+      {{ errorMessage }}
+    </div>
+  }
+
+
+  <!-- Message List -->
+
+  <div class="content-card">
+
+    <div class="card-header">
+
+      <div>
+        <h2>
+          Contact Messages
+        </h2>
+
+        <p>
+          {{ messages.length }} message(s)
+        </p>
+      </div>
+
+      <button
+        type="button"
+        class="refresh-button"
+        (click)="loadMessages()"
+        [disabled]="loading"
+      >
+        {{ loading ? 'Loading...' : 'Refresh' }}
+      </button>
+
+    </div>
+
+
+    @if (loading) {
+
+      <div class="state-message">
+        Loading messages...
+      </div>
+
+    } @else if (messages.length === 0) {
+
+      <div class="empty-state">
+
+        <div class="empty-icon">
+          ✉
+        </div>
+
+        <h3>
+          No messages yet
+        </h3>
+
+        <p>
+          Messages submitted through the portfolio
+          contact form will appear here.
+        </p>
+
+      </div>
+
+    } @else {
+
+      <div class="message-list">
+
+        @for (
+          message of messages;
+          track message.id
+        ) {
+
+          <article class="message-item">
+
+            <div class="message-header">
+
+              <div>
+
+                <h3>
+                  {{ message.name }}
+                </h3>
+
+                <a
+                  class="email"
+                  [href]="'mailto:' + message.email"
+                >
+                  {{ message.email }}
+                </a>
+
+              </div>
+
+
+              <button
+                type="button"
+                class="delete-button"
+                (click)="deleteMessage(message.id!)"
+              >
+                Delete
+              </button>
+
+            </div>
+
+
+            <div class="message-body">
+
+              <p>
+                {{ message.message }}
+              </p>
+
+            </div>
+
+          </article>
+
+        }
+
+      </div>
+
+    }
+
+  </div>
+
+</section>

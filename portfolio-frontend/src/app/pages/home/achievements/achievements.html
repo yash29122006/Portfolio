@@ -1,0 +1,97 @@
+<section class="achievements-section" id="achievements">
+
+  <div class="section-container">
+
+    <div class="section-heading">
+
+      <p class="section-label">
+        ACHIEVEMENTS
+      </p>
+
+      <h2>
+        Milestones I've
+        <span>reached.</span>
+      </h2>
+
+      <p class="section-description">
+        Highlights from my problem-solving journey and
+        continuous technical development.
+      </p>
+
+    </div>
+
+
+    <div class="achievements-grid">
+
+      @for (
+        achievement of achievements;
+        track achievement.number
+      ) {
+
+        <article class="achievement-card">
+
+          <div class="achievement-number">
+            {{ achievement.number }}
+          </div>
+
+
+          <div class="achievement-content">
+
+            <span class="achievement-category">
+              {{ achievement.category }}
+            </span>
+
+            <h3>
+              {{ achievement.title }}
+            </h3>
+
+            <p>
+              {{ achievement.description }}
+            </p>
+
+          </div>
+
+
+          <div class="achievement-arrow">
+            ↗
+          </div>
+
+        </article>
+
+      }
+
+    </div>
+
+
+    @if (achievements.length === 0) {
+
+      <div class="empty-state">
+
+        <p>
+          No featured achievements are currently available.
+        </p>
+
+      </div>
+
+    }
+
+
+    <div class="achievements-footer">
+
+      <a
+        href="#achievements"
+        class="view-more">
+
+        View More Achievements
+
+        <span>
+          →
+        </span>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>

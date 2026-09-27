@@ -1,0 +1,417 @@
+<section class="projects-admin">
+
+  <div class="page-header">
+
+    <div>
+
+      <a
+        routerLink="/admin/dashboard"
+        class="back-link">
+        ← Dashboard
+      </a>
+
+      <p class="page-label">
+        PROJECTS
+      </p>
+
+      <h2>
+        Project Management
+      </h2>
+
+      <p class="page-description">
+        Add, edit, feature, or remove projects displayed on your portfolio.
+      </p>
+
+    </div>
+
+    <button
+      type="button"
+      class="add-button"
+      (click)="startAdd()">
+
+      + Add Project
+
+    </button>
+
+  </div>
+
+
+  @if (successMessage) {
+
+    <div class="success-message">
+      {{ successMessage }}
+    </div>
+
+  }
+
+
+  @if (errorMessage) {
+
+    <div class="error-message">
+      {{ errorMessage }}
+    </div>
+
+  }
+
+
+  <!-- Project form -->
+
+  <div class="form-card">
+
+    <div class="form-heading">
+
+      <h3>
+        {{ isEditing ? 'Edit Project' : 'Add Project' }}
+      </h3>
+
+      <p>
+        {{
+          isEditing
+            ? 'Update the selected project.'
+            : 'Add a new project to your portfolio.'
+        }}
+      </p>
+
+    </div>
+
+
+    <form
+      [formGroup]="projectForm"
+      (ngSubmit)="saveProject()">
+
+      <div class="form-grid">
+
+        <!-- Name -->
+
+        <div class="form-group full-width">
+
+          <label for="name">
+            Project Name
+          </label>
+
+          <input
+            id="name"
+            type="text"
+            formControlName="name"
+            placeholder="e.g. P2P Learn">
+
+          @if (
+            projectForm.controls.name.touched &&
+            projectForm.controls.name.invalid
+          ) {
+
+            <small class="field-error">
+              Project name is required.
+            </small>
+
+          }
+
+        </div>
+
+
+        <!-- Tech Stack -->
+
+        <div class="form-group full-width">
+
+          <label for="techStack">
+            Tech Stack
+          </label>
+
+          <input
+            id="techStack"
+            type="text"
+            formControlName="techStack"
+            placeholder="e.g. Angular, Java, Spring Boot, PostgreSQL">
+
+          <small class="field-hint">
+            Separate technologies using commas.
+          </small>
+
+          @if (
+            projectForm.controls.techStack.touched &&
+            projectForm.controls.techStack.invalid
+          ) {
+
+            <small class="field-error">
+              Tech stack is required.
+            </small>
+
+          }
+
+        </div>
+
+
+        <!-- Description -->
+
+        <div class="form-group full-width">
+
+          <label for="description">
+            Description
+          </label>
+
+          <textarea
+            id="description"
+            rows="7"
+            formControlName="description"
+            placeholder="Describe the project, its purpose, architecture, and key features.">
+          </textarea>
+
+          @if (
+            projectForm.controls.description.touched &&
+            projectForm.controls.description.invalid
+          ) {
+
+            <small class="field-error">
+              Description is required and must contain at least 20 characters.
+            </small>
+
+          }
+
+        </div>
+
+
+        <!-- GitHub -->
+
+        <div class="form-group">
+
+          <label for="githubLink">
+            GitHub URL
+          </label>
+
+          <input
+            id="githubLink"
+            type="url"
+            formControlName="githubLink"
+            placeholder="https://github.com/...">
+
+        </div>
+
+
+        <!-- Live -->
+
+        <div class="form-group">
+
+          <label for="liveLink">
+            Live Demo URL
+          </label>
+
+          <input
+            id="liveLink"
+            type="url"
+            formControlName="liveLink"
+            placeholder="https://...">
+
+        </div>
+
+
+        <!-- Featured -->
+
+        <div class="featured-field full-width">
+
+          <label class="checkbox-label">
+
+            <input
+              type="checkbox"
+              formControlName="featured">
+
+            <span>
+              Feature this project
+            </span>
+
+          </label>
+
+          <small>
+            Featured projects can be highlighted on the public portfolio.
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <div class="form-actions">
+
+        @if (isEditing) {
+
+          <button
+            type="button"
+            class="cancel-button"
+            (click)="cancelEdit()">
+
+            Cancel
+
+          </button>
+
+        }
+
+        <button
+          type="submit"
+          class="save-button"
+          [disabled]="isSaving">
+
+          @if (isSaving) {
+            Saving...
+          } @else if (isEditing) {
+            Update Project
+          } @else {
+            Add Project
+          }
+
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+
+  <!-- Existing projects -->
+
+  <div class="records-section">
+
+    <div class="records-heading">
+
+      <div>
+
+        <h3>
+          Existing Projects
+        </h3>
+
+        <p>
+          Manage your current portfolio projects.
+        </p>
+
+      </div>
+
+      <span>
+        {{ projects.length }} project(s)
+      </span>
+
+    </div>
+
+
+    @if (isLoading) {
+
+      <div class="state-card">
+        Loading projects...
+      </div>
+
+    }
+
+
+    @if (!isLoading && projects.length === 0) {
+
+      <div class="state-card">
+        No projects found.
+      </div>
+
+    }
+
+
+    @if (!isLoading && projects.length > 0) {
+
+      <div class="projects-list">
+
+        @for (project of projects; track project.id) {
+
+          <article class="project-card">
+
+            <div class="project-content">
+
+              <div class="project-title-row">
+
+                <h4>
+                  {{ project.name }}
+                </h4>
+
+                @if (project.featured) {
+
+                  <span class="featured-badge">
+                    Featured
+                  </span>
+
+                }
+
+              </div>
+
+
+              <div class="tech-stack">
+
+                @for (
+                  tech of project.techStack.split(',');
+                  track tech
+                ) {
+
+                  <span>
+                    {{ tech.trim() }}
+                  </span>
+
+                }
+
+              </div>
+
+
+              <p class="project-description">
+                {{ project.description }}
+              </p>
+
+
+              <div class="project-links">
+
+                @if (project.githubLink) {
+
+                  <a
+                    [href]="project.githubLink"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    GitHub ↗
+                  </a>
+
+                }
+
+                @if (project.liveLink) {
+
+                  <a
+                    [href]="project.liveLink"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Live Demo ↗
+                  </a>
+
+                }
+
+              </div>
+
+            </div>
+
+
+            <div class="card-actions">
+
+              <button
+                type="button"
+                class="edit-button"
+                (click)="startEdit(project)">
+                Edit
+              </button>
+
+              <button
+                type="button"
+                class="delete-button"
+                (click)="deleteProject(project)">
+                Delete
+              </button>
+
+            </div>
+
+          </article>
+
+        }
+
+      </div>
+
+    }
+
+  </div>
+
+</section>

@@ -1,0 +1,227 @@
+<div class="admin-layout">
+
+  <!-- Sidebar -->
+
+  <aside class="sidebar">
+
+    <div class="sidebar-header">
+
+      <a
+        routerLink="/admin/dashboard"
+        class="admin-logo">
+        Yash<span>.</span>
+      </a>
+
+      <p>
+        ADMIN PANEL
+      </p>
+
+    </div>
+
+    <nav class="sidebar-navigation">
+
+      <a
+        routerLink="/admin/dashboard"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">
+
+        <span class="nav-icon">
+          ▦
+        </span>
+
+        <span>
+          Dashboard
+        </span>
+
+      </a>
+
+      <a
+        routerLink="/admin/dashboard/portfolio"
+        routerLinkActive="active">
+
+        <span class="nav-icon">
+          ◈
+        </span>
+
+        <span>
+          Portfolio
+        </span>
+
+      </a>
+
+      <a
+        routerLink="/admin/dashboard/academics"
+        routerLinkActive="active">
+
+        <span class="nav-icon">
+          ◫
+        </span>
+
+        <span>
+          Academics
+        </span>
+
+      </a>
+
+      <a
+        routerLink="/admin/dashboard/projects"
+        routerLinkActive="active">
+
+        <span class="nav-icon">
+          ◇
+        </span>
+
+        <span>
+          Projects
+        </span>
+
+      </a>
+
+      <a
+        routerLink="/admin/dashboard/skills"
+        routerLinkActive="active">
+
+        <span class="nav-icon">
+          ◆
+        </span>
+
+        <span>
+          Skills
+        </span>
+
+      </a>
+
+      <a
+        routerLink="/admin/dashboard/achievements"
+        routerLinkActive="active">
+
+        <span class="nav-icon">
+          ★
+        </span>
+
+        <span>
+          Achievements
+        </span>
+
+      </a>
+
+      <a
+        routerLink="/admin/dashboard/certifications"
+        routerLinkActive="active">
+
+        <span class="nav-icon">
+          ✓
+        </span>
+
+        <span>
+          Certifications
+        </span>
+
+      </a>
+
+      <a
+        routerLink="/admin/dashboard/experience"
+        routerLinkActive="active">
+
+        <span class="nav-icon">
+          ◷
+        </span>
+
+        <span>
+          Experience
+        </span>
+
+      </a>
+
+      <a
+        routerLink="/admin/dashboard/social-links"
+        routerLinkActive="active">
+
+        <span class="nav-icon">
+          ↗
+        </span>
+
+        <span>
+          Social Links
+        </span>
+
+      </a>
+
+      <a
+        routerLink="/admin/dashboard/messages"
+        routerLinkActive="active">
+
+        <span class="nav-icon">
+          ✉
+        </span>
+
+        <span>
+          Messages
+        </span>
+
+      </a>
+
+    </nav>
+
+    <div class="sidebar-footer">
+
+      <a
+        routerLink="/"
+        class="view-portfolio">
+        View Portfolio
+      </a>
+
+      <button
+        type="button"
+        class="logout-button"
+        (click)="logout()">
+
+        <span>
+          ↪
+        </span>
+
+        Logout
+
+      </button>
+
+    </div>
+
+  </aside>
+
+
+  <!-- Main content -->
+
+  <div class="admin-main">
+
+    <header class="admin-header">
+
+      <div>
+
+        <p class="header-label">
+          ADMIN DASHBOARD
+        </p>
+
+        <h1>
+          Portfolio Management
+        </h1>
+
+      </div>
+
+      <a
+        routerLink="/"
+        class="public-site-link">
+        Open Portfolio ↗
+      </a>
+
+    </header>
+
+
+    <main class="admin-content">
+
+      <router-outlet></router-outlet>
+
+    </main>
+
+  </div>
+
+</div>

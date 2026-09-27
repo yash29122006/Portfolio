@@ -1,0 +1,273 @@
+<section class="admin-page">
+
+  <div class="page-header">
+
+    <div>
+      <p class="eyebrow">Admin CMS</p>
+
+      <h1>Experience</h1>
+
+      <p class="page-description">
+        Manage professional experience and contributions
+        displayed on your portfolio.
+      </p>
+    </div>
+
+  </div>
+
+
+  <!-- Messages -->
+
+  @if (successMessage) {
+    <div class="alert success">
+      {{ successMessage }}
+    </div>
+  }
+
+  @if (errorMessage) {
+    <div class="alert error">
+      {{ errorMessage }}
+    </div>
+  }
+
+
+  <!-- Experience Form -->
+
+  <div class="content-card">
+
+    <div class="card-header">
+
+      <div>
+
+        <h2>
+          {{
+            editingId === null
+              ? 'Add Experience'
+              : 'Edit Experience'
+          }}
+        </h2>
+
+        <p>
+          {{
+            editingId === null
+              ? 'Create a new experience entry.'
+              : 'Update the selected experience.'
+          }}
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <form
+      [formGroup]="experienceForm"
+      (ngSubmit)="submit()"
+      class="experience-form"
+    >
+
+      <!-- Company -->
+
+      <div class="form-group">
+
+        <label for="companyName">
+          Company / Organization
+        </label>
+
+        <input
+          id="companyName"
+          type="text"
+          formControlName="companyName"
+          placeholder="e.g. ABC Technologies"
+        >
+
+        @if (companyName.invalid && companyName.touched) {
+          <small class="field-error">
+            Company or organization name is required and must
+            be at most 150 characters.
+          </small>
+        }
+
+      </div>
+
+
+      <!-- Role -->
+
+      <div class="form-group">
+
+        <label for="role">
+          Role
+        </label>
+
+        <input
+          id="role"
+          type="text"
+          formControlName="role"
+          placeholder="e.g. Java Backend Developer Intern"
+        >
+
+        @if (role.invalid && role.touched) {
+          <small class="field-error">
+            Role is required and must be at most
+            150 characters.
+          </small>
+        }
+
+      </div>
+
+
+      <!-- Contribution -->
+
+      <div class="form-group">
+
+        <label for="contribution">
+          Contribution
+        </label>
+
+        <textarea
+          id="contribution"
+          rows="6"
+          formControlName="contribution"
+          placeholder="Describe your responsibilities, contributions, and work..."
+        ></textarea>
+
+        @if (contribution.invalid && contribution.touched) {
+          <small class="field-error">
+            Contribution is required and must be at most
+            1000 characters.
+          </small>
+        }
+
+      </div>
+
+
+      <!-- Buttons -->
+
+      <div class="form-actions">
+
+        <button
+          type="submit"
+          class="primary-button"
+          [disabled]="saving"
+        >
+          {{
+            saving
+              ? 'Saving...'
+              : editingId === null
+                ? 'Add Experience'
+                : 'Update Experience'
+          }}
+        </button>
+
+
+        @if (editingId !== null) {
+
+          <button
+            type="button"
+            class="secondary-button"
+            (click)="resetForm()"
+          >
+            Cancel Edit
+          </button>
+
+        }
+
+      </div>
+
+    </form>
+
+  </div>
+
+
+  <!-- Existing Experience -->
+
+  <div class="content-card">
+
+    <div class="card-header">
+
+      <div>
+
+        <h2>
+          Existing Experience
+        </h2>
+
+        <p>
+          {{ experiences.length }} experience entry(s)
+        </p>
+
+      </div>
+
+    </div>
+
+
+    @if (loading) {
+
+      <div class="state-message">
+        Loading experience...
+      </div>
+
+    } @else if (experiences.length === 0) {
+
+      <div class="state-message">
+        No experience entries found.
+      </div>
+
+    } @else {
+
+      <div class="experience-list">
+
+        @for (
+          experience of experiences;
+          track experience.id
+        ) {
+
+          <article class="experience-item">
+
+            <div class="experience-content">
+
+              <h3>
+                {{ experience.role }}
+              </h3>
+
+              <p class="company">
+                {{ experience.companyName }}
+              </p>
+
+              <p class="contribution">
+                {{ experience.contribution }}
+              </p>
+
+            </div>
+
+
+            <div class="item-actions">
+
+              <button
+                type="button"
+                class="edit-button"
+                (click)="editExperience(experience)"
+              >
+                Edit
+              </button>
+
+              <button
+                type="button"
+                class="delete-button"
+                (click)="deleteExperience(experience.id)"
+              >
+                Delete
+              </button>
+
+            </div>
+
+          </article>
+
+        }
+
+      </div>
+
+    }
+
+  </div>
+
+</section>

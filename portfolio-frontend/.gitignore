@@ -1,0 +1,92 @@
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# ==========================================
+# Compiled Output & Build Artifacts
+# ==========================================
+/dist
+/.dist
+/out-tsc
+/bazel-out
+/.tmp
+/tmp
+/build
+
+# ==========================================
+# Dependencies & Package Managers
+# ==========================================
+/node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ==========================================
+# Angular & Build Tool Caches
+# ==========================================
+/.angular
+/.angular/cache
+.sass-cache/
+
+# ==========================================
+# Environment Variables & Local Secrets
+# ==========================================
+.env
+.env.local
+.env.*.local
+*.env
+
+# ==========================================
+# Testing & Code Coverage
+# ==========================================
+/coverage
+*.lcov
+.nyc_output/
+testem.log
+/typings
+__screenshots__/
+
+# ==========================================
+# IDEs & Code Editors
+# ==========================================
+# IntelliJ IDEA / WebStorm
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Eclipse
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+
+# Sublime Text & generic editors
+*.sublime-workspace
+*.sublime-project
+*.swp
+*.swo
+*~
+*.bak
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/mcp.json
+.history/
+
+# ==========================================
+# Operating System & System Files
+# ==========================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini

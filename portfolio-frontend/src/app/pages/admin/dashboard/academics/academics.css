@@ -1,0 +1,460 @@
+.academics-admin {
+  max-width: 1100px;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.page-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-bottom: 30px;
+}
+
+.back-link {
+  display: inline-block;
+
+  margin-bottom: 20px;
+
+  color: #777785;
+
+  font-size: 0.8rem;
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: #e0248a;
+}
+
+.page-label {
+  margin: 0 0 8px;
+
+  color: #e0248a;
+
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.page-header h2 {
+  margin: 0;
+
+  font-size: 1.8rem;
+}
+
+.page-description {
+  margin: 9px 0 0;
+
+  color: #777785;
+
+  font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.add-button,
+.save-button,
+.cancel-button,
+.edit-button,
+.delete-button {
+  border-radius: 7px;
+
+  font-size: 0.8rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.add-button {
+  flex-shrink: 0;
+
+  padding: 10px 15px;
+
+  border: 1px solid #e0248a;
+
+  background: #e0248a;
+  color: #ffffff;
+}
+
+.add-button:hover {
+  background: #c41574;
+}
+
+
+/* =========================================================
+   MESSAGES
+   ========================================================= */
+
+.success-message,
+.error-message {
+  margin-bottom: 20px;
+
+  padding: 11px 13px;
+
+  border-radius: 8px;
+
+  font-size: 0.8rem;
+}
+
+.success-message {
+  border: 1px solid rgba(102, 217, 138, 0.25);
+
+  background: rgba(102, 217, 138, 0.07);
+
+  color: #66d98a;
+}
+
+.error-message {
+  border: 1px solid rgba(255, 107, 107, 0.25);
+
+  background: rgba(255, 107, 107, 0.07);
+
+  color: #ff6b6b;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.form-card {
+  margin-bottom: 45px;
+
+  padding: 28px;
+
+  border: 1px solid #202025;
+  border-radius: 16px;
+
+  background: #0f0f12;
+}
+
+.form-heading {
+  margin-bottom: 25px;
+}
+
+.form-heading h3 {
+  margin: 0;
+
+  font-size: 1rem;
+}
+
+.form-heading p {
+  margin: 6px 0 0;
+
+  color: #777785;
+
+  font-size: 0.78rem;
+}
+
+.form-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.form-group label {
+  color: #d7d7df;
+
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+
+  padding: 12px 13px;
+
+  border: 1px solid #26262c;
+  border-radius: 8px;
+
+  outline: none;
+
+  background: #08080a;
+  color: #ffffff;
+
+  font-size: 0.85rem;
+
+  transition: border-color 0.2s ease;
+}
+
+.form-group input::placeholder {
+  color: #62626d;
+}
+
+.form-group input:focus {
+  border-color: #e0248a;
+}
+
+.field-error {
+  color: #ff6b6b;
+
+  font-size: 0.7rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  margin-top: 25px;
+}
+
+.save-button {
+  padding: 11px 18px;
+
+  border: 1px solid #e0248a;
+
+  background: #e0248a;
+  color: #ffffff;
+}
+
+.save-button:hover:not(:disabled) {
+  background: #c41574;
+}
+
+.save-button:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+}
+
+.cancel-button {
+  padding: 11px 18px;
+
+  border: 1px solid #30303b;
+
+  background: transparent;
+  color: #9999a5;
+}
+
+.cancel-button:hover {
+  border-color: #555562;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   RECORDS
+   ========================================================= */
+
+.records-section {
+  margin-top: 10px;
+}
+
+.records-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 18px;
+}
+
+.records-heading h3 {
+  margin: 0;
+
+  font-size: 1rem;
+}
+
+.records-heading span {
+  color: #777785;
+
+  font-size: 0.75rem;
+}
+
+.state-card {
+  padding: 25px;
+
+  border: 1px solid #202025;
+  border-radius: 12px;
+
+  background: #0f0f12;
+
+  color: #858591;
+
+  font-size: 0.82rem;
+}
+
+.records-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.academic-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 25px;
+
+  padding: 20px 22px;
+
+  border: 1px solid #202025;
+  border-radius: 12px;
+
+  background: #0f0f12;
+
+  transition: border-color 0.2s ease;
+}
+
+.academic-card:hover {
+  border-color: #383840;
+}
+
+.academic-content {
+  min-width: 0;
+}
+
+.academic-content h4 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 0.92rem;
+}
+
+.degree {
+  margin: 6px 0 10px;
+
+  color: #9a9aa5;
+
+  font-size: 0.8rem;
+}
+
+.academic-meta {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 8px;
+}
+
+.academic-meta span {
+  padding: 5px 8px;
+
+  border: 1px solid #28282d;
+  border-radius: 5px;
+
+  background: #131317;
+
+  color: #858591;
+
+  font-size: 0.7rem;
+}
+
+.card-actions {
+  display: flex;
+
+  flex-shrink: 0;
+
+  gap: 8px;
+}
+
+.edit-button {
+  padding: 8px 12px;
+
+  border: 1px solid #393940;
+
+  background: transparent;
+  color: #aaaab5;
+}
+
+.edit-button:hover {
+  border-color: #e0248a;
+
+  color: #ffffff;
+}
+
+.delete-button {
+  padding: 8px 12px;
+
+  border: 1px solid rgba(255, 107, 107, 0.25);
+
+  background: transparent;
+  color: #ff7777;
+}
+
+.delete-button:hover {
+  border-color: #ff6b6b;
+
+  background: rgba(255, 107, 107, 0.07);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .page-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .add-button {
+    width: 100%;
+  }
+
+  .form-card {
+    padding: 22px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .full-width {
+    grid-column: auto;
+  }
+
+  .academic-card {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .card-actions {
+    width: 100%;
+  }
+
+  .edit-button,
+  .delete-button {
+    flex: 1;
+  }
+
+}

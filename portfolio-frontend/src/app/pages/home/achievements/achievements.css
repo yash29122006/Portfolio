@@ -1,0 +1,275 @@
+/* =========================================================
+   ACHIEVEMENTS SECTION
+   ========================================================= */
+
+.achievements-section {
+  padding: var(--section-padding-desktop) 0;
+
+  background: var(--background-soft);
+
+  border-top: 1px solid var(--border-soft);
+}
+
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
+.achievements-section .section-heading {
+  max-width: 760px;
+
+  margin-bottom: 60px;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.achievements-section .section-description {
+  max-width: 680px;
+
+  margin-top: 20px;
+}
+
+
+/* =========================================================
+   ACHIEVEMENTS GRID
+   ========================================================= */
+
+.achievements-grid {
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  gap: 16px;
+}
+
+
+/* =========================================================
+   ACHIEVEMENT CARD
+   ========================================================= */
+
+.achievement-card {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns: 60px 1fr auto;
+
+  align-items: center;
+
+  gap: 25px;
+
+  padding: 28px 30px;
+
+  background: var(--background-card);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-medium);
+
+  box-shadow: var(--shadow-card);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.achievement-card:hover {
+  transform: translateX(5px);
+
+  background: var(--background-elevated);
+
+  border-color: var(--accent-border);
+
+  box-shadow:
+    var(--shadow-card),
+    var(--shadow-accent);
+}
+
+
+/* =========================================================
+   NUMBER
+   ========================================================= */
+
+.achievement-number {
+  color: var(--accent);
+
+  font-family: var(--font-mono);
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.achievement-category {
+  display: inline-block;
+
+  margin-bottom: 8px;
+
+  color: var(--text-muted);
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1.5px;
+}
+
+
+.achievement-content h3 {
+  margin: 0 0 9px;
+
+  color: var(--text-primary);
+
+  font-size: 19px;
+
+  line-height: 1.4;
+
+  font-weight: 600;
+}
+
+
+.achievement-content p {
+  max-width: 750px;
+
+  margin: 0;
+
+  color: var(--text-muted);
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   ARROW
+   ========================================================= */
+
+.achievement-arrow {
+  color: var(--accent);
+
+  font-size: 22px;
+
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease;
+}
+
+
+.achievement-card:hover .achievement-arrow {
+  color: var(--accent-light);
+
+  transform: translate(3px, -3px);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.achievements-footer {
+  display: flex;
+
+  justify-content: center;
+
+  margin-top: 40px;
+}
+
+
+.view-more {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: var(--text-primary);
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  transition:
+    color 0.2s ease;
+}
+
+
+.view-more span {
+  color: var(--accent);
+
+  font-size: 18px;
+
+  transition:
+    transform 0.2s ease;
+}
+
+
+.view-more:hover {
+  color: var(--accent-light);
+}
+
+
+.view-more:hover span {
+  transform: translateX(4px);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .achievements-section {
+    padding: var(--section-padding-mobile) 0;
+  }
+
+
+  .achievement-card {
+    grid-template-columns: 40px 1fr;
+
+    gap: 15px;
+
+    padding: 23px;
+  }
+
+
+  .achievement-arrow {
+    display: none;
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .achievements-section {
+    padding: 75px 0;
+  }
+
+
+  .achievement-card {
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+  }
+
+
+  .achievement-number {
+    margin-bottom: 2px;
+  }
+
+}

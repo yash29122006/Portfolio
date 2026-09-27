@@ -1,0 +1,115 @@
+<div class="login-page">
+
+  <div class="login-card">
+
+    <div class="login-header">
+
+      <a
+        routerLink="/"
+        class="logo">
+        Yash<span>.</span>
+      </a>
+
+      <p class="login-label">
+        ADMIN PANEL
+      </p>
+
+      <h1>
+        Welcome back.
+      </h1>
+
+      <p class="login-description">
+        Sign in to manage your portfolio content.
+      </p>
+
+    </div>
+
+    <form
+      class="login-form"
+      [formGroup]="loginForm"
+      (ngSubmit)="submitLogin()">
+
+      <div class="form-group">
+
+        <label for="username">
+          Username
+        </label>
+
+        <input
+          id="username"
+          type="text"
+          formControlName="username"
+          autocomplete="username"
+          placeholder="Enter username">
+
+        @if (
+          loginForm.controls.username.touched &&
+          loginForm.controls.username.invalid
+        ) {
+
+          <small class="field-error">
+            Username is required.
+          </small>
+
+        }
+
+      </div>
+
+      <div class="form-group">
+
+        <label for="password">
+          Password
+        </label>
+
+        <input
+          id="password"
+          type="password"
+          formControlName="password"
+          autocomplete="current-password"
+          placeholder="Enter password">
+
+        @if (
+          loginForm.controls.password.touched &&
+          loginForm.controls.password.invalid
+        ) {
+
+          <small class="field-error">
+            Password is required.
+          </small>
+
+        }
+
+      </div>
+
+      @if (errorMessage) {
+
+        <div class="login-error">
+          {{ errorMessage }}
+        </div>
+
+      }
+
+      <button
+        type="submit"
+        class="login-button"
+        [disabled]="isSubmitting">
+
+        @if (isSubmitting) {
+          Signing in...
+        } @else {
+          Sign In
+        }
+
+      </button>
+
+    </form>
+
+    <a
+      routerLink="/"
+      class="back-link">
+      ← Back to portfolio
+    </a>
+
+  </div>
+
+</div>

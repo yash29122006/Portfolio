@@ -1,0 +1,138 @@
+<section class="portfolio-admin">
+
+  <div class="page-header">
+
+    <div>
+
+      <a
+        routerLink="/admin/dashboard"
+        class="back-link">
+        ← Dashboard
+      </a>
+
+      <p class="page-label">
+        PORTFOLIO
+      </p>
+
+      <h2>
+        Portfolio Information
+      </h2>
+
+      <p class="page-description">
+        Update the information displayed in your portfolio.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  @if (isLoading) {
+
+    <div class="state-card">
+      Loading portfolio information...
+    </div>
+
+  }
+
+
+  @if (!isLoading) {
+
+    <form
+      class="portfolio-form"
+      [formGroup]="portfolioForm"
+      (ngSubmit)="savePortfolio()">
+
+      <div class="form-group">
+
+        <label for="name">
+          Name
+        </label>
+
+        <input
+          id="name"
+          type="text"
+          formControlName="name"
+          placeholder="Your name">
+
+        @if (
+          portfolioForm.controls.name.touched &&
+          portfolioForm.controls.name.invalid
+        ) {
+
+          <small class="field-error">
+            Name is required and must contain at least 2 characters.
+          </small>
+
+        }
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label for="summary">
+          Professional Summary
+        </label>
+
+        <textarea
+          id="summary"
+          rows="8"
+          formControlName="summary"
+          placeholder="Enter your professional summary">
+        </textarea>
+
+        @if (
+          portfolioForm.controls.summary.touched &&
+          portfolioForm.controls.summary.invalid
+        ) {
+
+          <small class="field-error">
+            Summary is required and must contain at least 20 characters.
+          </small>
+
+        }
+
+      </div>
+
+
+      @if (successMessage) {
+
+        <div class="success-message">
+          {{ successMessage }}
+        </div>
+
+      }
+
+
+      @if (errorMessage) {
+
+        <div class="error-message">
+          {{ errorMessage }}
+        </div>
+
+      }
+
+
+      <div class="form-actions">
+
+        <button
+          type="submit"
+          class="save-button"
+          [disabled]="isSaving">
+
+          @if (isSaving) {
+            Saving...
+          } @else {
+            Save Changes
+          }
+
+        </button>
+
+      </div>
+
+    </form>
+
+  }
+
+</section>

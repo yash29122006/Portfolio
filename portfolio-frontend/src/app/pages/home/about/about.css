@@ -1,0 +1,215 @@
+/* =========================================================
+   ABOUT SECTION
+   ========================================================= */
+
+.about-section {
+  padding: var(--section-padding-desktop) 0;
+
+  background: var(--background-soft);
+
+  border-top: 1px solid var(--border-soft);
+}
+
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
+.about-section .section-heading {
+  max-width: 800px;
+
+  margin-bottom: 65px;
+}
+
+
+/* =========================================================
+   ABOUT GRID
+   ========================================================= */
+
+.about-grid {
+  display: grid;
+
+  grid-template-columns: 1.1fr 0.9fr;
+
+  gap: 80px;
+
+  align-items: start;
+}
+
+
+/* =========================================================
+   ABOUT CONTENT
+   ========================================================= */
+
+.about-content {
+  color: var(--text-secondary);
+
+  font-size: 16px;
+
+  line-height: 1.85;
+}
+
+
+.about-content p {
+  margin: 0 0 22px;
+}
+
+
+.about-content p:last-child {
+  margin-bottom: 0;
+}
+
+
+.about-content .intro {
+  color: #e3e3ed;
+
+  font-size: 20px;
+
+  font-weight: 500;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   HIGHLIGHTS
+   ========================================================= */
+
+.about-highlights {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 16px;
+}
+
+
+.highlight-card {
+  display: grid;
+
+  grid-template-columns: 48px 1fr;
+
+  gap: 18px;
+
+  padding: 24px;
+
+  background: var(--background-card);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-medium);
+
+  box-shadow: var(--shadow-card);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.highlight-card:hover {
+  transform: translateY(-3px);
+
+  background: var(--background-elevated);
+
+  border-color: var(--accent-border);
+
+  box-shadow:
+    var(--shadow-card),
+    var(--shadow-accent);
+}
+
+
+/* =========================================================
+   HIGHLIGHT NUMBER
+   ========================================================= */
+
+.highlight-number {
+  color: var(--accent);
+
+  font-family: var(--font-mono);
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  padding-top: 3px;
+}
+
+
+/* =========================================================
+   HIGHLIGHT CONTENT
+   ========================================================= */
+
+.highlight-card h3 {
+  margin: 0 0 8px;
+
+  color: var(--text-primary);
+
+  font-size: 16px;
+
+  line-height: 1.4;
+
+  font-weight: 700;
+}
+
+
+.highlight-card p {
+  margin: 0;
+
+  color: var(--text-muted);
+
+  font-size: 14px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+  .about-section {
+    padding: var(--section-padding-mobile) 0;
+  }
+
+
+  .about-grid {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+  }
+
+
+  .about-section .section-heading {
+    margin-bottom: 45px;
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .about-section {
+    padding: 75px 0;
+  }
+
+
+  .about-content .intro {
+    font-size: 18px;
+  }
+
+
+  .highlight-card {
+    grid-template-columns: 38px 1fr;
+
+    padding: 20px;
+
+    gap: 12px;
+  }
+
+}

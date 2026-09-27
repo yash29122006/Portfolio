@@ -1,0 +1,307 @@
+/* =========================================================
+   ACADEMICS SECTION
+   ========================================================= */
+
+.academics-section {
+  padding: var(--section-padding-desktop) 0;
+
+  background: var(--background);
+
+  border-top: 1px solid var(--border-soft);
+}
+
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
+.academics-section .section-heading {
+  max-width: 760px;
+
+  margin-bottom: 65px;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.academics-section .section-description {
+  max-width: 650px;
+
+  margin-top: 20px;
+}
+
+
+/* =========================================================
+   TIMELINE
+   ========================================================= */
+
+.academic-timeline {
+  position: relative;
+
+  max-width: 950px;
+
+  margin: 0 auto;
+}
+
+
+/* Timeline vertical line */
+
+.academic-timeline::before {
+  content: "";
+
+  position: absolute;
+
+  top: 28px;
+  bottom: 28px;
+
+  left: 10px;
+
+  width: 1px;
+
+  background: var(--accent-border);
+}
+
+
+/* =========================================================
+   ACADEMIC CARD
+   ========================================================= */
+
+.academic-card {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns: 22px 1fr;
+
+  gap: 28px;
+
+  margin-bottom: 32px;
+}
+
+
+.academic-card:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   TIMELINE MARKER
+   ========================================================= */
+
+.timeline-marker {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  justify-content: center;
+
+  padding-top: 25px;
+}
+
+
+.timeline-marker span {
+  width: 21px;
+  height: 21px;
+
+  display: block;
+
+  border-radius: 50%;
+
+  background: var(--background);
+
+  border: 2px solid var(--accent);
+
+  box-shadow:
+    0 0 0 5px var(--accent-soft);
+}
+
+
+/* =========================================================
+   ACADEMIC CONTENT
+   ========================================================= */
+
+.academic-content {
+  padding: 28px 30px;
+
+  background: var(--background-card);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-medium);
+
+  box-shadow: var(--shadow-card);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.academic-content:hover {
+  transform: translateX(4px);
+
+  border-color: var(--accent-border);
+
+  box-shadow:
+    var(--shadow-card),
+    var(--shadow-accent);
+}
+
+
+/* =========================================================
+   ACADEMIC HEADER
+   ========================================================= */
+
+.academic-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  gap: 30px;
+}
+
+
+/* =========================================================
+   YEAR
+   ========================================================= */
+
+.academic-period {
+  margin: 0 0 8px;
+
+  color: var(--accent);
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   DEGREE
+   ========================================================= */
+
+.academic-header h3 {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-size: 19px;
+
+  line-height: 1.4;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   GRADE
+   ========================================================= */
+
+.grade {
+  min-width: 100px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-end;
+
+  gap: 3px;
+}
+
+
+.grade span {
+  color: var(--text-muted);
+
+  font-size: 10px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+}
+
+
+.grade strong {
+  color: var(--text-primary);
+
+  font-size: 20px;
+
+  line-height: 1.2;
+}
+
+
+/* =========================================================
+   INSTITUTION
+   ========================================================= */
+
+.institution {
+  margin: 18px 0 5px;
+
+  color: var(--text-secondary);
+
+  font-size: 15px;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .academics-section {
+    padding: var(--section-padding-mobile) 0;
+  }
+
+
+  .academics-section .section-heading {
+    margin-bottom: 45px;
+  }
+
+
+  .academic-card {
+    grid-template-columns: 18px 1fr;
+
+    gap: 18px;
+  }
+
+
+  .academic-timeline::before {
+    left: 8px;
+  }
+
+
+  .timeline-marker span {
+    width: 17px;
+    height: 17px;
+  }
+
+
+  .academic-content {
+    padding: 22px 20px;
+  }
+
+
+  .academic-header {
+    flex-direction: column;
+
+    gap: 18px;
+  }
+
+
+  .grade {
+    align-items: flex-start;
+  }
+
+}

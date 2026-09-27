@@ -1,0 +1,264 @@
+<section class="hero-section" id="home">
+
+  <div class="section-container">
+
+    <div class="hero-grid">
+
+      <!-- LEFT SIDE -->
+      <div class="hero-content">
+
+        <p class="hero-label">
+          COMPUTER ENGINEERING UNDERGRADUATE
+        </p>
+
+        <h1>
+          Hi, I'm
+          <span>{{ portfolio?.name }}</span>
+        </h1>
+
+        <h2>
+          Java Full Stack Developer
+        </h2>
+
+        <p class="hero-description">
+          {{ portfolio?.summary }}
+        </p>
+
+        <div class="hero-actions">
+
+          <button
+            type="button"
+            class="hero-button primary"
+            (click)="scrollToProjects()">
+            View Projects
+          </button>
+
+          <button
+            type="button"
+            class="hero-button secondary"
+            (click)="scrollToContact()">
+            Contact Me
+          </button>
+
+        </div>
+
+
+        <div class="hero-stats">
+
+          <div class="hero-stat">
+
+            <strong>
+              150+
+            </strong>
+
+            <span>
+              LeetCode Problems
+            </span>
+
+          </div>
+
+
+          <div class="hero-stat">
+
+            <strong>
+              9.38
+            </strong>
+
+            <span>
+              Current SGPA
+            </span>
+
+          </div>
+
+
+          <div class="hero-stat">
+
+            <strong>
+              Java
+            </strong>
+
+            <span>
+              Primary Stack
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- RIGHT SIDE -->
+      <div class="hero-visual">
+
+        <div class="code-window">
+
+          <div class="code-window-header">
+
+            <div class="window-dots">
+
+              <span></span>
+              <span></span>
+              <span></span>
+
+            </div>
+
+            <span class="window-title">
+              Yash.java
+            </span>
+
+          </div>
+
+
+          <div class="code-content">
+
+            <p>
+              <span class="code-purple">public class</span>
+              <span class="code-white">Yash</span>
+              <span class="code-white">{{ '{' }}</span>
+            </p>
+
+            <p class="code-indent">
+
+              <span class="code-purple">
+                String
+              </span>
+
+              <span class="code-white">
+                role
+              </span>
+
+              <span class="code-white">
+                =
+              </span>
+
+              <span class="code-green">
+                "Java Full Stack Developer"
+              </span>
+
+              <span class="code-white">
+                ;
+              </span>
+
+            </p>
+
+
+            <p class="code-indent">
+
+              <span class="code-purple">
+                String[]
+              </span>
+
+              <span class="code-white">
+                stack
+              </span>
+
+              <span class="code-white">
+                =
+              </span>
+
+              <span class="code-white">
+                {{ '{' }}
+              </span>
+
+            </p>
+
+
+            <p class="code-indent-2">
+
+              <span class="code-green">
+                "Java"
+              </span>
+
+              <span class="code-white">
+                ,
+              </span>
+
+              <span class="code-green">
+                "Spring Boot"
+              </span>
+
+              <span class="code-white">
+                ,
+              </span>
+
+            </p>
+
+
+            <p class="code-indent-2">
+
+              <span class="code-green">
+                "Angular"
+              </span>
+
+              <span class="code-white">
+                ,
+              </span>
+
+              <span class="code-green">
+                "PostgreSQL"
+              </span>
+
+            </p>
+
+
+            <p class="code-indent">
+
+              <span class="code-white">
+                {{ '{' }}
+              </span>
+
+            </p>
+
+
+            <p class="code-indent">
+
+              <span class="code-purple">
+                boolean
+              </span>
+
+              <span class="code-white">
+                building
+              </span>
+
+              <span class="code-white">
+                =
+              </span>
+
+              <span class="code-orange">
+                true
+              </span>
+
+              <span class="code-white">
+                ;
+              </span>
+
+            </p>
+
+
+            <p>
+              <span class="code-white">
+                {{ '}' }}
+              </span>
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="hero-scroll">
+
+      <span>
+        Scroll to explore
+      </span>
+
+    </div>
+
+  </div>
+
+</section>

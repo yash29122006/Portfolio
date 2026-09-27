@@ -1,0 +1,303 @@
+<section class="admin-page">
+
+  <div class="page-header">
+    <div>
+      <p class="eyebrow">Admin CMS</p>
+
+      <h1>Certifications</h1>
+
+      <p class="page-description">
+        Manage the certifications displayed on your portfolio.
+      </p>
+    </div>
+  </div>
+
+
+  <!-- Messages -->
+
+  @if (successMessage) {
+    <div class="alert success">
+      {{ successMessage }}
+    </div>
+  }
+
+  @if (errorMessage) {
+    <div class="alert error">
+      {{ errorMessage }}
+    </div>
+  }
+
+
+  <!-- Certification Form -->
+
+  <div class="content-card">
+
+    <div class="card-header">
+      <div>
+
+        <h2>
+          {{
+            editingId === null
+              ? 'Add Certification'
+              : 'Edit Certification'
+          }}
+        </h2>
+
+        <p>
+          {{
+            editingId === null
+              ? 'Create a new certification.'
+              : 'Update the selected certification.'
+          }}
+        </p>
+
+      </div>
+    </div>
+
+
+    <form
+      [formGroup]="certificationForm"
+      (ngSubmit)="submit()"
+      class="certification-form"
+    >
+
+      <!-- Name -->
+
+      <div class="form-group">
+
+        <label for="name">
+          Certification Name
+        </label>
+
+        <input
+          id="name"
+          type="text"
+          formControlName="name"
+          placeholder="e.g. Java DSA: Fundamentals & Beyond"
+        >
+
+        @if (name.invalid && name.touched) {
+          <small class="field-error">
+            Certification name is required and must be at most
+            150 characters.
+          </small>
+        }
+
+      </div>
+
+
+      <!-- Issuing Authority -->
+
+      <div class="form-group">
+
+        <label for="issuingAuthority">
+          Issuing Authority
+        </label>
+
+        <input
+          id="issuingAuthority"
+          type="text"
+          formControlName="issuingAuthority"
+          placeholder="e.g. Scaler Academy"
+        >
+
+        @if (
+          issuingAuthority.invalid &&
+          issuingAuthority.touched
+        ) {
+          <small class="field-error">
+            Issuing authority is required and must be at most
+            150 characters.
+          </small>
+        }
+
+      </div>
+
+
+      <!-- Skills Learned -->
+
+      <div class="form-group">
+
+        <label for="skillsLearned">
+          Skills Learned
+        </label>
+
+        <textarea
+          id="skillsLearned"
+          rows="5"
+          formControlName="skillsLearned"
+          placeholder="e.g. Java, DSA, OOP, Problem Solving"
+        ></textarea>
+
+        @if (
+          skillsLearned.invalid &&
+          skillsLearned.touched
+        ) {
+          <small class="field-error">
+            Skills learned are required and must be at most
+            500 characters.
+          </small>
+        }
+
+      </div>
+
+
+      <!-- Featured -->
+
+      <label class="checkbox-group">
+
+        <input
+          type="checkbox"
+          formControlName="featured"
+        >
+
+        <span>
+          Mark as featured
+        </span>
+
+      </label>
+
+
+      <!-- Buttons -->
+
+      <div class="form-actions">
+
+        <button
+          type="submit"
+          class="primary-button"
+          [disabled]="saving"
+        >
+          {{
+            saving
+              ? 'Saving...'
+              : editingId === null
+                ? 'Add Certification'
+                : 'Update Certification'
+          }}
+        </button>
+
+
+        @if (editingId !== null) {
+
+          <button
+            type="button"
+            class="secondary-button"
+            (click)="resetForm()"
+          >
+            Cancel Edit
+          </button>
+
+        }
+
+      </div>
+
+    </form>
+
+  </div>
+
+
+  <!-- Existing Certifications -->
+
+  <div class="content-card">
+
+    <div class="card-header">
+
+      <div>
+
+        <h2>
+          Existing Certifications
+        </h2>
+
+        <p>
+          {{ certifications.length }} certification(s)
+        </p>
+
+      </div>
+
+    </div>
+
+
+    @if (loading) {
+
+      <div class="state-message">
+        Loading certifications...
+      </div>
+
+    } @else if (certifications.length === 0) {
+
+      <div class="state-message">
+        No certifications found.
+      </div>
+
+    } @else {
+
+      <div class="certification-list">
+
+        @for (
+          certification of certifications;
+          track certification.id
+        ) {
+
+          <article class="certification-item">
+
+            <div class="certification-content">
+
+              <div class="certification-title-row">
+
+                <h3>
+                  {{ certification.name }}
+                </h3>
+
+                @if (certification.featured) {
+                  <span class="featured-badge">
+                    Featured
+                  </span>
+                }
+
+              </div>
+
+
+              <p class="issuer">
+                {{ certification.issuingAuthority }}
+              </p>
+
+
+              <p class="skills">
+                <strong>Skills:</strong>
+                {{ certification.skillsLearned }}
+              </p>
+
+            </div>
+
+
+            <div class="item-actions">
+
+              <button
+                type="button"
+                class="edit-button"
+                (click)="editCertification(certification)"
+              >
+                Edit
+              </button>
+
+              <button
+                type="button"
+                class="delete-button"
+                (click)="deleteCertification(certification.id)"
+              >
+                Delete
+              </button>
+
+            </div>
+
+          </article>
+
+        }
+
+      </div>
+
+    }
+
+  </div>
+
+</section>

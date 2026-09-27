@@ -1,0 +1,107 @@
+<footer class="footer">
+
+  <div class="section-container">
+
+    <div class="footer-content">
+
+
+      <div class="footer-brand">
+
+        <a
+          href="#home"
+          class="footer-logo"
+          (click)="scrollToTop()">
+
+          Yash<span>.</span>
+
+        </a>
+
+        <p>
+          Java Full Stack Developer building secure,
+          database-driven applications.
+        </p>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        @if (socialLinks?.githubUrl) {
+
+          <a
+            [href]="socialLinks?.githubUrl"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            GitHub
+
+          </a>
+
+        }
+
+
+        @if (socialLinks?.linkedinUrl) {
+
+          <a
+            [href]="socialLinks?.linkedinUrl"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            LinkedIn
+
+          </a>
+
+        }
+
+
+        @if (socialLinks?.leetcodeUrl) {
+
+          <a
+            [href]="socialLinks?.leetcodeUrl"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            LeetCode
+
+          </a>
+
+        }
+
+
+        @if (socialLinks?.codolioUrl) {
+
+          <a
+            [href]="socialLinks?.codolioUrl"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Codolio
+
+          </a>
+
+        }
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <p>
+        © 2026 Yashkumar Gupta. All rights reserved.
+      </p>
+
+      <button
+        type="button"
+        (click)="scrollToTop()">
+
+        Back to top ↑
+
+      </button>
+
+    </div>
+
+  </div>
+
+</footer>

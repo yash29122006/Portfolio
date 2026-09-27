@@ -1,0 +1,290 @@
+<section class="admin-page">
+
+  <div class="page-header">
+
+    <div>
+      <p class="eyebrow">Admin CMS</p>
+
+      <h1>Social Links</h1>
+
+      <p class="page-description">
+        Manage the social and developer profile links
+        displayed across your portfolio.
+      </p>
+    </div>
+
+  </div>
+
+
+  <!-- Messages -->
+
+  @if (successMessage) {
+    <div class="alert success">
+      {{ successMessage }}
+    </div>
+  }
+
+  @if (errorMessage) {
+    <div class="alert error">
+      {{ errorMessage }}
+    </div>
+  }
+
+
+  <!-- Loading -->
+
+  @if (loading) {
+
+    <div class="content-card">
+      <div class="state-message">
+        Loading social links...
+      </div>
+    </div>
+
+  } @else {
+
+    <!-- Social Links Form -->
+
+    <div class="content-card">
+
+      <div class="card-header">
+
+        <div>
+          <h2>
+            Profile Links
+          </h2>
+
+          <p>
+            Leave a field empty if you do not want
+            that link displayed.
+          </p>
+        </div>
+
+      </div>
+
+
+      <form
+        [formGroup]="socialLinksForm"
+        (ngSubmit)="save()"
+        class="social-links-form"
+      >
+
+        <!-- GitHub -->
+
+        <div class="form-group">
+
+          <label for="githubUrl">
+            GitHub URL
+          </label>
+
+          <input
+            id="githubUrl"
+            type="url"
+            formControlName="githubUrl"
+            placeholder="https://github.com/username"
+          >
+
+          @if (githubUrl.invalid && githubUrl.touched) {
+            <small class="field-error">
+              Enter a valid URL starting with http:// or https://.
+            </small>
+          }
+
+        </div>
+
+
+        <!-- LinkedIn -->
+
+        <div class="form-group">
+
+          <label for="linkedinUrl">
+            LinkedIn URL
+          </label>
+
+          <input
+            id="linkedinUrl"
+            type="url"
+            formControlName="linkedinUrl"
+            placeholder="https://www.linkedin.com/in/username"
+          >
+
+          @if (
+            linkedinUrl.invalid &&
+            linkedinUrl.touched
+          ) {
+            <small class="field-error">
+              Enter a valid URL starting with http:// or https://.
+            </small>
+          }
+
+        </div>
+
+
+        <!-- LeetCode -->
+
+        <div class="form-group">
+
+          <label for="leetcodeUrl">
+            LeetCode URL
+          </label>
+
+          <input
+            id="leetcodeUrl"
+            type="url"
+            formControlName="leetcodeUrl"
+            placeholder="https://leetcode.com/username"
+          >
+
+          @if (
+            leetcodeUrl.invalid &&
+            leetcodeUrl.touched
+          ) {
+            <small class="field-error">
+              Enter a valid URL starting with http:// or https://.
+            </small>
+          }
+
+        </div>
+
+
+        <!-- Codolio -->
+
+        <div class="form-group">
+
+          <label for="codolioUrl">
+            Codolio URL
+          </label>
+
+          <input
+            id="codolioUrl"
+            type="url"
+            formControlName="codolioUrl"
+            placeholder="https://codolio.com/profile/username"
+          >
+
+          @if (
+            codolioUrl.invalid &&
+            codolioUrl.touched
+          ) {
+            <small class="field-error">
+              Enter a valid URL starting with http:// or https://.
+            </small>
+          }
+
+        </div>
+
+
+        <!-- Save -->
+
+        <div class="form-actions">
+
+          <button
+            type="submit"
+            class="primary-button"
+            [disabled]="saving"
+          >
+            {{ saving ? 'Saving...' : 'Save Social Links' }}
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+
+    <!-- Current Values -->
+
+    @if (socialLinks) {
+
+      <div class="content-card">
+
+        <div class="card-header">
+
+          <div>
+            <h2>
+              Current Links
+            </h2>
+
+            <p>
+              Links currently stored in the portfolio database.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="current-links">
+
+          @if (socialLinks.githubUrl) {
+            <div class="current-link">
+              <span>GitHub</span>
+              <a
+                [href]="socialLinks.githubUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {{ socialLinks.githubUrl }}
+              </a>
+            </div>
+          }
+
+          @if (socialLinks.linkedinUrl) {
+            <div class="current-link">
+              <span>LinkedIn</span>
+              <a
+                [href]="socialLinks.linkedinUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {{ socialLinks.linkedinUrl }}
+              </a>
+            </div>
+          }
+
+          @if (socialLinks.leetcodeUrl) {
+            <div class="current-link">
+              <span>LeetCode</span>
+              <a
+                [href]="socialLinks.leetcodeUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {{ socialLinks.leetcodeUrl }}
+              </a>
+            </div>
+          }
+
+          @if (socialLinks.codolioUrl) {
+            <div class="current-link">
+              <span>Codolio</span>
+              <a
+                [href]="socialLinks.codolioUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {{ socialLinks.codolioUrl }}
+              </a>
+            </div>
+          }
+
+          @if (
+            !socialLinks.githubUrl &&
+            !socialLinks.linkedinUrl &&
+            !socialLinks.leetcodeUrl &&
+            !socialLinks.codolioUrl
+          ) {
+            <div class="state-message">
+              No social links are currently configured.
+            </div>
+          }
+
+        </div>
+
+      </div>
+
+    }
+
+  }
+
+</section>

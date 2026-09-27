@@ -1,0 +1,271 @@
+<section class="skills-admin">
+
+  <div class="page-header">
+
+    <div>
+
+      <a
+        routerLink="/admin/dashboard"
+        class="back-link">
+        ← Dashboard
+      </a>
+
+      <p class="page-label">
+        SKILLS
+      </p>
+
+      <h2>
+        Skills Management
+      </h2>
+
+      <p class="page-description">
+        Manage the technical skills and categories displayed on your portfolio.
+      </p>
+
+    </div>
+
+    <button
+      type="button"
+      class="add-button"
+      (click)="startAdd()">
+
+      + Add Skill
+
+    </button>
+
+  </div>
+
+
+  @if (successMessage) {
+
+    <div class="success-message">
+      {{ successMessage }}
+    </div>
+
+  }
+
+
+  @if (errorMessage) {
+
+    <div class="error-message">
+      {{ errorMessage }}
+    </div>
+
+  }
+
+
+  <!-- Form -->
+
+  <div class="form-card">
+
+    <div class="form-heading">
+
+      <h3>
+        {{ isEditing ? 'Edit Skill' : 'Add Skill' }}
+      </h3>
+
+      <p>
+        {{
+          isEditing
+            ? 'Update the selected skill.'
+            : 'Add a new technical skill.'
+        }}
+      </p>
+
+    </div>
+
+
+    <form
+      [formGroup]="skillForm"
+      (ngSubmit)="saveSkill()">
+
+      <div class="form-grid">
+
+        <div class="form-group">
+
+          <label for="name">
+            Skill Name
+          </label>
+
+          <input
+            id="name"
+            type="text"
+            formControlName="name"
+            placeholder="e.g. Java">
+
+          @if (
+            skillForm.controls.name.touched &&
+            skillForm.controls.name.invalid
+          ) {
+
+            <small class="field-error">
+              Skill name is required.
+            </small>
+
+          }
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="category">
+            Category
+          </label>
+
+          <input
+            id="category"
+            type="text"
+            formControlName="category"
+            placeholder="e.g. Programming Languages">
+
+          @if (
+            skillForm.controls.category.touched &&
+            skillForm.controls.category.invalid
+          ) {
+
+            <small class="field-error">
+              Category is required.
+            </small>
+
+          }
+
+        </div>
+
+      </div>
+
+
+      <div class="form-actions">
+
+        @if (isEditing) {
+
+          <button
+            type="button"
+            class="cancel-button"
+            (click)="cancelEdit()">
+
+            Cancel
+
+          </button>
+
+        }
+
+        <button
+          type="submit"
+          class="save-button"
+          [disabled]="isSaving">
+
+          @if (isSaving) {
+            Saving...
+          } @else if (isEditing) {
+            Update Skill
+          } @else {
+            Add Skill
+          }
+
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+
+  <!-- Existing skills -->
+
+  <div class="records-section">
+
+    <div class="records-heading">
+
+      <div>
+
+        <h3>
+          Existing Skills
+        </h3>
+
+        <p>
+          Manage your current technical skills.
+        </p>
+
+      </div>
+
+      <span>
+        {{ skills.length }} skill(s)
+      </span>
+
+    </div>
+
+
+    @if (isLoading) {
+
+      <div class="state-card">
+        Loading skills...
+      </div>
+
+    }
+
+
+    @if (!isLoading && skills.length === 0) {
+
+      <div class="state-card">
+        No skills found.
+      </div>
+
+    }
+
+
+    @if (!isLoading && skills.length > 0) {
+
+      <div class="skills-list">
+
+        @for (skill of skills; track skill.id) {
+
+          <article class="skill-card">
+
+            <div class="skill-info">
+
+              <h4>
+                {{ skill.name }}
+              </h4>
+
+              <span>
+                {{ skill.category }}
+              </span>
+
+            </div>
+
+
+            <div class="card-actions">
+
+              <button
+                type="button"
+                class="edit-button"
+                (click)="startEdit(skill)">
+
+                Edit
+
+              </button>
+
+              <button
+                type="button"
+                class="delete-button"
+                (click)="deleteSkill(skill)">
+
+                Delete
+
+              </button>
+
+            </div>
+
+          </article>
+
+        }
+
+      </div>
+
+    }
+
+  </div>
+
+</section>

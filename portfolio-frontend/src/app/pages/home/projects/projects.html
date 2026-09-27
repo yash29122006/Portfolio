@@ -1,0 +1,131 @@
+<section class="projects-section" id="projects">
+
+  <div class="section-container">
+
+    <div class="section-heading">
+
+      <p class="section-label">
+        PROJECTS
+      </p>
+
+      <h2>
+        Things I've
+        <span>built.</span>
+      </h2>
+
+      <p class="section-description">
+        A selection of full-stack applications and technical projects.
+      </p>
+
+    </div>
+
+
+    <div class="projects-grid">
+
+      @for (project of projects; track project.id) {
+
+        <article class="project-card">
+
+          <div class="project-content">
+
+            <div class="project-header">
+
+              <h3>
+                {{ project.name }}
+              </h3>
+
+              @if (project.featured) {
+
+                <span class="project-featured">
+                  Featured
+                </span>
+
+              }
+
+            </div>
+
+
+            <p class="project-description">
+              {{ project.description }}
+            </p>
+
+
+            <div class="project-tech">
+
+              @for (
+                tech of getTechStack(project.techStack);
+                track tech
+              ) {
+
+                <span class="tech-tag">
+                  {{ tech }}
+                </span>
+
+              }
+
+            </div>
+
+
+            <div class="project-links">
+
+              @if (project.githubLink) {
+
+                <a
+                  [href]="project.githubLink"
+                  target="_blank"
+                  rel="noopener noreferrer">
+
+                  GitHub
+
+                  <span>
+                    ↗
+                  </span>
+
+                </a>
+
+              }
+
+
+              @if (project.liveLink) {
+
+                <a
+                  [href]="project.liveLink"
+                  target="_blank"
+                  rel="noopener noreferrer">
+
+                  Live Demo
+
+                  <span>
+                    ↗
+                  </span>
+
+                </a>
+
+              }
+
+            </div>
+
+          </div>
+
+        </article>
+
+      }
+
+    </div>
+
+
+    @if (projects.length === 0) {
+
+      <div class="empty-state">
+
+        <p>
+          No featured projects are currently available.
+        </p>
+
+      </div>
+
+    }
+
+  </div>
+
+</section>

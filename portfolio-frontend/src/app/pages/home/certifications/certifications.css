@@ -1,0 +1,170 @@
+/* =========================================================
+   CERTIFICATIONS SECTION
+   ========================================================= */
+
+.certifications-section {
+  padding: var(--section-padding-desktop) 0;
+
+  background: var(--background);
+
+  border-top: 1px solid var(--border-soft);
+}
+
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
+.certifications-section .section-heading {
+  max-width: 760px;
+
+  margin-bottom: 60px;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.certifications-section .section-description {
+  max-width: 680px;
+
+  margin-top: 20px;
+}
+
+
+/* =========================================================
+   CERTIFICATIONS GRID
+   ========================================================= */
+
+.certifications-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 24px;
+}
+
+
+/* =========================================================
+   CERTIFICATION CARD
+   ========================================================= */
+
+.certification-card {
+  padding: 30px;
+
+  background: var(--background-card);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-medium);
+
+  box-shadow: var(--shadow-card);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.certification-card:hover {
+  transform: translateY(-5px);
+
+  background: var(--background-elevated);
+
+  border-color: var(--accent-border);
+
+  box-shadow:
+    var(--shadow-card),
+    var(--shadow-accent);
+}
+
+
+/* =========================================================
+   CERTIFICATION CONTENT
+   ========================================================= */
+
+.certification-content h3 {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-size: 20px;
+
+  line-height: 1.4;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   ISSUING AUTHORITY
+   ========================================================= */
+
+.certification-authority {
+  margin: 10px 0 18px;
+
+  color: var(--text-secondary);
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   SKILLS LEARNED
+   ========================================================= */
+
+.certification-skills {
+  margin: 0;
+
+  padding-top: 18px;
+
+  border-top: 1px solid var(--border);
+
+  color: var(--text-muted);
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .certifications-section {
+    padding: var(--section-padding-mobile) 0;
+  }
+
+
+  .certifications-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .certifications-section {
+    padding: 75px 0;
+  }
+
+
+  .certification-card {
+    padding: 24px;
+  }
+
+
+  .certification-content h3 {
+    font-size: 18px;
+  }
+
+}

@@ -1,0 +1,72 @@
+<section class="experience-section" id="experience">
+
+  <div class="section-container">
+
+    <div class="section-heading">
+
+      <p class="section-label">
+        EXPERIENCE
+      </p>
+
+      <h2>
+        Building through
+        <span>projects.</span>
+      </h2>
+
+      <p class="section-description">
+        My practical development experience and
+        technical contributions.
+      </p>
+
+    </div>
+
+
+    @if (experiences.length > 0) {
+
+      <div class="experience-list">
+
+        @for (
+          experience of experiences;
+          track experience.id
+        ) {
+
+          <article class="experience-card">
+
+            <div class="experience-content">
+
+              <h3>
+                {{ experience.role }}
+              </h3>
+
+              <p class="experience-company">
+                {{ experience.companyName }}
+              </p>
+
+              <p class="experience-contribution">
+                {{ experience.contribution }}
+              </p>
+
+            </div>
+
+          </article>
+
+        }
+
+      </div>
+
+    } @else {
+
+      <div class="experience-empty">
+
+        <p>
+          Currently building practical experience through
+          full-stack projects and continuous technical development.
+        </p>
+
+      </div>
+
+    }
+
+  </div>
+
+</section>

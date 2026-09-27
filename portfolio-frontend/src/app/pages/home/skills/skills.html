@@ -1,0 +1,74 @@
+<section class="skills-section" id="skills">
+
+  <div class="section-container">
+
+    <div class="section-heading">
+
+      <p class="section-label">
+        SKILLS
+      </p>
+
+      <h2>
+        Technologies I
+        <span>work with.</span>
+      </h2>
+
+      <p class="section-description">
+        My technical toolkit across software development
+        and computer science.
+      </p>
+
+    </div>
+
+
+    <div class="skills-grid">
+
+      @for (
+        group of skillCategories;
+        track group.category
+      ) {
+
+        <article class="skill-category">
+
+          <h3>
+            {{ group.category }}
+          </h3>
+
+
+          <div class="skill-list">
+
+            @for (
+              skill of group.skills;
+              track skill
+            ) {
+
+              <span class="skill-tag">
+                {{ skill }}
+              </span>
+
+            }
+
+          </div>
+
+        </article>
+
+      }
+
+    </div>
+
+
+    @if (skillCategories.length === 0) {
+
+      <div class="empty-state">
+
+        <p>
+          Skills information is currently unavailable.
+        </p>
+
+      </div>
+
+    }
+
+  </div>
+
+</section>

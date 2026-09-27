@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 import { Home } from './pages/home/home';
 
 import { Login } from './pages/admin/login/login';
-
+import { ProjectsPage } from './pages/projects-page/projects-page';
 import { Dashboard } from './pages/admin/dashboard/dashboard';
 import { Overview } from './pages/admin/dashboard/overview/overview';
 import { Portfolio } from './pages/admin/dashboard/portfolio/portfolio';
@@ -20,12 +20,22 @@ import { adminGuard } from './core/guards/admin-guard';
 
 export const routes: Routes = [
 
+  {
+    path: 'projects',
+    component: ProjectsPage
+  },
+
   // PUBLIC PORTFOLIO
   {
     path: '',
     component: Home
   },
 
+  // ALL PROJECTS PAGE
+  {
+    path: 'projects',
+    component: ProjectsPage
+  },
 
   // ADMIN LOGIN
   {

@@ -1,0 +1,142 @@
+<section class="all-projects-section">
+
+  <div class="section-container">
+
+    <div class="page-header">
+
+      <a
+        routerLink="/"
+        class="back-link"
+      >
+        <span>←</span>
+        Back to Home
+      </a>
+
+      <p class="section-label">
+        PROJECTS
+      </p>
+
+      <h1>
+        Things I've <span>built.</span>
+      </h1>
+
+      <p class="page-description">
+        A complete collection of my full-stack applications,
+        technical projects, and development work.
+      </p>
+
+    </div>
+
+
+    @if (projects.length > 0) {
+
+      <div class="projects-grid">
+
+        @for (project of projects; track project.id) {
+
+          <article class="project-card">
+
+            <div class="project-content">
+
+              <div class="project-header">
+
+                <h2>
+                  {{ project.name }}
+                </h2>
+
+                @if (project.featured) {
+
+                  <span class="project-featured">
+                    Featured
+                  </span>
+
+                }
+
+              </div>
+
+
+              <p class="project-description">
+                {{ project.description }}
+              </p>
+
+
+              <div class="project-tech">
+
+                @for (
+                  tech of getTechStack(project.techStack);
+                  track tech
+                ) {
+
+                  <span class="tech-tag">
+                    {{ tech }}
+                  </span>
+
+                }
+
+              </div>
+
+
+              <div class="project-links">
+
+                @if (project.githubLink) {
+
+                  <a
+                    [href]="project.githubLink"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub
+                    <span>↗</span>
+                  </a>
+
+                }
+
+
+                @if (project.liveLink) {
+
+                  <a
+                    [href]="project.liveLink"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Live Demo
+                    <span>↗</span>
+                  </a>
+
+                }
+
+              </div>
+
+            </div>
+
+          </article>
+
+        }
+
+      </div>
+
+    }
+
+
+    @if (projects.length === 0) {
+
+      <div class="empty-state">
+
+        <p>
+          No projects are currently available.
+        </p>
+
+        <a
+          routerLink="/"
+          class="back-home-button"
+        >
+          Back to Home
+        </a>
+
+      </div>
+
+    }
+
+  </div>
+
+</section>

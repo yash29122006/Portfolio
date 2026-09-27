@@ -4,12 +4,14 @@ import {
   inject
 } from '@angular/core';
 
+import { RouterLink } from '@angular/router';
+
 import { Api } from '../../../core/services/api';
 import { Achievement } from '../../../models/achievement.model';
 
 @Component({
   selector: 'app-achievements',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './achievements.html',
   styleUrl: './achievements.css'
 })

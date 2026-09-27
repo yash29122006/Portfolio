@@ -4,12 +4,14 @@ import {
   inject
 } from '@angular/core';
 
+import { RouterLink } from '@angular/router';
+
 import { Api } from '../../../core/services/api';
 import { Certification } from '../../../models/certification.model';
 
 @Component({
   selector: 'app-certifications',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './certifications.html',
   styleUrl: './certifications.css'
 })

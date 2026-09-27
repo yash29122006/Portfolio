@@ -3,14 +3,10 @@
   <div class="section-container">
 
     <div class="section-heading">
-
-      <p class="section-label">
-        PROJECTS
-      </p>
+      <p class="section-label">PROJECTS</p>
 
       <h2>
-        Things I've
-        <span>built.</span>
+        Things I've <span>built.</span>
       </h2>
 
       <p class="section-description">
@@ -22,107 +18,94 @@
 
     <div class="projects-grid">
 
-      @for (project of projects; track project.id) {
+      @for (project of projects.slice(0, 3); track project.id) {
 
-        <article class="project-card">
+      <article class="project-card">
 
-          <div class="project-content">
+        <div class="project-content">
 
-            <div class="project-header">
+          <div class="project-header">
 
-              <h3>
-                {{ project.name }}
-              </h3>
+            <h3>{{ project.name }}</h3>
 
-              @if (project.featured) {
-
-                <span class="project-featured">
-                  Featured
-                </span>
-
-              }
-
-            </div>
-
-
-            <p class="project-description">
-              {{ project.description }}
-            </p>
-
-
-            <div class="project-tech">
-
-              @for (
-                tech of getTechStack(project.techStack);
-                track tech
-              ) {
-
-                <span class="tech-tag">
-                  {{ tech }}
-                </span>
-
-              }
-
-            </div>
-
-
-            <div class="project-links">
-
-              @if (project.githubLink) {
-
-                <a
-                  [href]="project.githubLink"
-                  target="_blank"
-                  rel="noopener noreferrer">
-
-                  GitHub
-
-                  <span>
-                    ↗
-                  </span>
-
-                </a>
-
-              }
-
-
-              @if (project.liveLink) {
-
-                <a
-                  [href]="project.liveLink"
-                  target="_blank"
-                  rel="noopener noreferrer">
-
-                  Live Demo
-
-                  <span>
-                    ↗
-                  </span>
-
-                </a>
-
-              }
-
-            </div>
+            @if (project.featured) {
+            <span class="project-featured">
+              Featured
+            </span>
+            }
 
           </div>
 
-        </article>
+          <p class="project-description">
+            {{ project.description }}
+          </p>
+
+          <div class="project-tech">
+
+            @for (
+            tech of getTechStack(project.techStack);
+            track tech
+            ) {
+
+            <span class="tech-tag">
+              {{ tech }}
+            </span>
+
+            }
+
+          </div>
+
+          <div class="project-links">
+
+            @if (project.githubLink) {
+
+            <a [href]="project.githubLink" target="_blank" rel="noopener noreferrer">
+              GitHub
+              <span>↗</span>
+            </a>
+
+            }
+
+            @if (project.liveLink) {
+
+            <a [href]="project.liveLink" target="_blank" rel="noopener noreferrer">
+              Live Demo
+              <span>↗</span>
+            </a>
+
+            }
+
+          </div>
+
+        </div>
+
+      </article>
 
       }
 
     </div>
 
-
+    
     @if (projects.length === 0) {
 
-      <div class="empty-state">
+    <div class="empty-state">
+      <p>
+        No featured projects are currently available.
+      </p>
+    </div>
 
-        <p>
-          No featured projects are currently available.
-        </p>
+    }
 
-      </div>
+    @if (projects.length > 3) {
+
+    <div class="projects-view-more">
+
+      <a routerLink="/projects" class="view-more-button">
+        View More Projects
+        <span>→</span>
+      </a>
+
+    </div>
 
     }
 

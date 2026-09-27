@@ -273,3 +273,33 @@
   }
 
 }
+
+.achievements-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.view-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.view-more span {
+  color: var(--accent);
+  font-size: 18px;
+  transition: transform 0.2s ease;
+}
+
+.view-more:hover {
+  color: var(--accent-light);
+}
+
+.view-more:hover span {
+  transform: translateX(4px);
+}

@@ -1,6 +1,4 @@
-<section
-  class="certifications-section"
-  id="certifications">
+<section class="certifications-section" id="certifications">
 
   <div class="section-container">
 
@@ -26,29 +24,29 @@
     <div class="certifications-grid">
 
       @for (
-        certification of certifications;
-        track certification.id
+      certification of certifications;
+      track certification.id
       ) {
 
-        <article class="certification-card">
+      <article class="certification-card">
 
-          <div class="certification-content">
+        <div class="certification-content">
 
-            <h3>
-              {{ certification.name }}
-            </h3>
+          <h3>
+            {{ certification.name }}
+          </h3>
 
-            <p class="certification-authority">
-              {{ certification.issuingAuthority }}
-            </p>
+          <p class="certification-authority">
+            {{ certification.issuingAuthority }}
+          </p>
 
-            <p class="certification-skills">
-              {{ certification.skillsLearned }}
-            </p>
+          <p class="certification-skills">
+            {{ certification.skillsLearned }}
+          </p>
 
-          </div>
+        </div>
 
-        </article>
+      </article>
 
       }
 
@@ -57,13 +55,32 @@
 
     @if (certifications.length === 0) {
 
-      <div class="empty-state">
+    <div class="empty-state">
 
-        <p>
-          No featured certifications are currently available.
-        </p>
+      <p>
+        No featured certifications are currently available.
+      </p>
 
-      </div>
+    </div>
+
+    }
+
+
+    @if (certifications.length > 0) {
+
+    <div class="certifications-footer">
+
+      <a routerLink="/certifications" class="view-more">
+
+        View More Certifications
+
+        <span>
+          →
+        </span>
+
+      </a>
+
+    </div>
 
     }
 

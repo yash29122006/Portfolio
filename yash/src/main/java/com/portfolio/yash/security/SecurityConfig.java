@@ -94,11 +94,12 @@ public class SecurityConfig {
                                 "/api/contact"
                         ).permitAll()
 
-                        // Everything under admin requires login
+                        // Everything under admin requires ADMIN role
                         .requestMatchers(
                                 "/api/admin/**"
                         ).hasRole("ADMIN")
 
+                        // Everything else requires authentication
                         .anyRequest().authenticated()
                 )
 
@@ -118,9 +119,10 @@ public class SecurityConfig {
         CorsConfiguration configuration =
                 new CorsConfiguration();
 
-        configuration.setAllowedOrigins(
+        configuration.setAllowedOriginPatterns(
                 List.of(
-                        "http://localhost:4200"
+                        "http://localhost:4200",
+                        "https://*.vercel.app"
                 )
         );
 

@@ -1,0 +1,103 @@
+<section class="all-achievements-section">
+
+  <div class="section-container">
+
+    <div class="page-header">
+
+      <a
+        routerLink="/"
+        class="back-link"
+      >
+        <span>←</span>
+        Back to Home
+      </a>
+
+      <p class="section-label">
+        ACHIEVEMENTS
+      </p>
+
+      <h1>
+        Milestones I've
+        <span>reached.</span>
+      </h1>
+
+      <p class="page-description">
+        A complete collection of achievements from my
+        problem-solving journey and technical development.
+      </p>
+
+    </div>
+
+
+    @if (achievements.length > 0) {
+
+      <div class="achievements-list">
+
+        @for (
+          achievement of achievements;
+          track achievement.id
+        ) {
+
+          <article class="achievement-card">
+
+            <div class="achievement-number">
+              {{ ($index + 1).toString().padStart(2, '0') }}
+            </div>
+
+
+            <div class="achievement-content">
+
+              <span class="achievement-category">
+                Achievement
+              </span>
+
+              <h2>
+                {{ achievement.heading }}
+              </h2>
+
+              <p>
+                {{ achievement.description }}
+              </p>
+
+            </div>
+
+
+            @if (achievement.featured) {
+
+              <span class="achievement-featured">
+                Featured
+              </span>
+
+            }
+
+          </article>
+
+        }
+
+      </div>
+
+    }
+
+
+    @if (achievements.length === 0) {
+
+      <div class="empty-state">
+
+        <p>
+          No achievements are currently available.
+        </p>
+
+        <a
+          routerLink="/"
+          class="back-home-button"
+        >
+          Back to Home
+        </a>
+
+      </div>
+
+    }
+
+  </div>
+
+</section>

@@ -1,0 +1,391 @@
+/* =========================================================
+   ALL CERTIFICATIONS PAGE
+   ========================================================= */
+
+.all-certifications-section {
+
+  min-height: 100vh;
+
+  padding:
+    calc(var(--navbar-height) + 70px)
+    0
+    100px;
+
+  background: var(--background);
+
+}
+
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
+
+.page-header {
+
+  max-width: 800px;
+
+  margin-bottom: 65px;
+
+}
+
+
+.back-link {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-bottom: 35px;
+
+  color: var(--text-secondary);
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease;
+
+}
+
+
+.back-link span {
+
+  color: var(--accent);
+
+  font-size: 18px;
+
+}
+
+
+.back-link:hover {
+
+  color: var(--text-primary);
+
+}
+
+
+.page-header .section-label {
+
+  margin-bottom: 15px;
+
+}
+
+
+.page-header h1 {
+
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-size: clamp(38px, 5vw, 60px);
+
+  line-height: 1.1;
+
+  font-weight: 700;
+
+  letter-spacing: -1.5px;
+
+}
+
+
+.page-header h1 span {
+
+  color: var(--accent);
+
+}
+
+
+.page-description {
+
+  max-width: 700px;
+
+  margin: 22px 0 0;
+
+  color: var(--text-secondary);
+
+  font-size: 16px;
+
+  line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   CERTIFICATIONS GRID
+   ========================================================= */
+
+.certifications-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 24px;
+
+}
+
+
+/* =========================================================
+   CERTIFICATION CARD
+   ========================================================= */
+
+.certification-card {
+
+  padding: 30px;
+
+  background: var(--background-card);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-medium);
+
+  box-shadow: var(--shadow-card);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+
+}
+
+
+.certification-card:hover {
+
+  transform: translateY(-5px);
+
+  background: var(--background-elevated);
+
+  border-color: var(--accent-border);
+
+  box-shadow:
+    var(--shadow-card),
+    var(--shadow-accent);
+
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.certification-header {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+}
+
+
+.certification-header h2 {
+
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-size: 20px;
+
+  line-height: 1.4;
+
+  font-weight: 600;
+
+}
+
+
+/* =========================================================
+   FEATURED
+   ========================================================= */
+
+.certification-featured {
+
+  flex-shrink: 0;
+
+  padding: 5px 10px;
+
+  color: var(--accent-light);
+
+  background: var(--accent-soft);
+
+  border: 1px solid var(--accent-border);
+
+  border-radius: 20px;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+}
+
+
+/* =========================================================
+   AUTHORITY
+   ========================================================= */
+
+.certification-authority {
+
+  margin: 10px 0 18px;
+
+  color: var(--text-secondary);
+
+  font-size: 14px;
+
+  line-height: 1.5;
+
+}
+
+
+/* =========================================================
+   SKILLS
+   ========================================================= */
+
+.certification-skills {
+
+  margin: 0;
+
+  padding-top: 18px;
+
+  border-top: 1px solid var(--border);
+
+  color: var(--text-muted);
+
+  font-size: 14px;
+
+  line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.empty-state {
+
+  padding: 60px 30px;
+
+  text-align: center;
+
+  background: var(--background-card);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-medium);
+
+}
+
+
+.empty-state p {
+
+  margin: 0 0 25px;
+
+  color: var(--text-secondary);
+
+  font-size: 15px;
+
+}
+
+
+.back-home-button {
+
+  display: inline-flex;
+
+  padding: 12px 22px;
+
+  color: var(--text-primary);
+
+  background: var(--accent);
+
+  border-radius: var(--radius-small);
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+}
+
+
+.back-home-button:hover {
+
+  background: var(--accent-hover);
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .all-certifications-section {
+
+    padding:
+      calc(var(--navbar-height) + 50px)
+      0
+      80px;
+
+  }
+
+
+  .certifications-grid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .all-certifications-section {
+
+    padding:
+      calc(var(--navbar-height) + 35px)
+      0
+      70px;
+
+  }
+
+
+  .page-header {
+
+    margin-bottom: 45px;
+
+  }
+
+
+  .page-header h1 {
+
+    font-size: 38px;
+
+  }
+
+
+  .certification-card {
+
+    padding: 24px;
+
+  }
+
+
+  .certification-header {
+
+    flex-direction: column;
+
+  }
+
+}

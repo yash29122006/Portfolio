@@ -4,6 +4,8 @@ import { Home } from './pages/home/home';
 
 import { Login } from './pages/admin/login/login';
 import { ProjectsPage } from './pages/projects-page/projects-page';
+import { AchievementsPage } from './pages/achievements-page/achievements-page';
+import { CertificationsPage } from './pages/certifications-page/certifications-page';
 import { Dashboard } from './pages/admin/dashboard/dashboard';
 import { Overview } from './pages/admin/dashboard/overview/overview';
 import { Portfolio } from './pages/admin/dashboard/portfolio/portfolio';
@@ -23,6 +25,15 @@ export const routes: Routes = [
   {
     path: 'projects',
     component: ProjectsPage
+  },
+  {
+    path: 'achievements',
+    component: AchievementsPage
+  },
+
+  {
+    path: 'certifications',
+    component: CertificationsPage
   },
 
   // PUBLIC PORTFOLIO

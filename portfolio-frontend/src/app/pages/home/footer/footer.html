@@ -2,89 +2,158 @@
 
   <div class="section-container">
 
+    <!-- =====================================================
+         FOOTER MAIN CONTENT
+         ===================================================== -->
+
     <div class="footer-content">
 
+
+      <!-- ===================================================
+           BRAND
+           =================================================== -->
 
       <div class="footer-brand">
 
         <a
           href="#home"
           class="footer-logo"
-          (click)="scrollToTop()">
-
+          (click)="scrollToTop()"
+        >
           Yash<span>.</span>
-
         </a>
 
         <p>
           Java Full Stack Developer building secure,
-          database-driven applications.
+          database-driven applications with Java,
+          Spring Boot, Angular, and PostgreSQL.
         </p>
+
+        <div class="footer-status">
+          <span class="footer-status-dot"></span>
+          Open to opportunities
+        </div>
 
       </div>
 
 
-      <div class="footer-links">
+      <!-- ===================================================
+           QUICK LINKS
+           =================================================== -->
 
-        @if (socialLinks?.githubUrl) {
+      <div class="footer-column">
 
-          <a
-            [href]="socialLinks?.githubUrl"
-            target="_blank"
-            rel="noopener noreferrer">
+        <h3>
+          Quick Links
+        </h3>
 
-            GitHub
-
-          </a>
-
-        }
-
-
-        @if (socialLinks?.linkedinUrl) {
+        <nav class="footer-nav">
 
           <a
-            [href]="socialLinks?.linkedinUrl"
-            target="_blank"
-            rel="noopener noreferrer">
-
-            LinkedIn
-
+            href="#home"
+            (click)="scrollToTop()"
+          >
+            Home
           </a>
 
-        }
-
-
-        @if (socialLinks?.leetcodeUrl) {
-
-          <a
-            [href]="socialLinks?.leetcodeUrl"
-            target="_blank"
-            rel="noopener noreferrer">
-
-            LeetCode
-
+          <a href="#about">
+            About
           </a>
 
-        }
-
-
-        @if (socialLinks?.codolioUrl) {
-
-          <a
-            [href]="socialLinks?.codolioUrl"
-            target="_blank"
-            rel="noopener noreferrer">
-
-            Codolio
-
+          <a href="#projects">
+            Projects
           </a>
 
-        }
+          <a href="#skills">
+            Skills
+          </a>
+
+          <a href="#contact">
+            Contact
+          </a>
+
+        </nav>
+
+      </div>
+
+
+      <!-- ===================================================
+           SOCIAL LINKS
+           =================================================== -->
+
+      <div class="footer-column">
+
+        <h3>
+          Connect
+        </h3>
+
+        <div class="footer-links">
+
+          @if (socialLinks?.githubUrl) {
+
+            <a
+              [href]="socialLinks?.githubUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>GitHub</span>
+              <span class="footer-link-arrow">↗</span>
+            </a>
+
+          }
+
+
+          @if (socialLinks?.linkedinUrl) {
+
+            <a
+              [href]="socialLinks?.linkedinUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>LinkedIn</span>
+              <span class="footer-link-arrow">↗</span>
+            </a>
+
+          }
+
+
+          @if (socialLinks?.leetcodeUrl) {
+
+            <a
+              [href]="socialLinks?.leetcodeUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>LeetCode</span>
+              <span class="footer-link-arrow">↗</span>
+            </a>
+
+          }
+
+
+          @if (socialLinks?.codolioUrl) {
+
+            <a
+              [href]="socialLinks?.codolioUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Codolio</span>
+              <span class="footer-link-arrow">↗</span>
+            </a>
+
+          }
+
+        </div>
 
       </div>
 
     </div>
 
+
+    <!-- =====================================================
+         FOOTER BOTTOM
+         ===================================================== -->
 
     <div class="footer-bottom">
 
@@ -92,12 +161,18 @@
         © 2026 Yashkumar Gupta. All rights reserved.
       </p>
 
+      <p class="footer-built">
+        Built with
+        <span>Java</span>,
+        <span>Spring Boot</span> &
+        <span>Angular</span>
+      </p>
+
       <button
         type="button"
-        (click)="scrollToTop()">
-
+        (click)="scrollToTop()"
+      >
         Back to top ↑
-
       </button>
 
     </div>

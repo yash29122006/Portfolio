@@ -2,10 +2,6 @@
 
   <div class="section-container">
 
-    <!-- =====================================================
-         SECTION HEADING
-         ===================================================== -->
-
     <div class="section-heading">
 
       <p class="section-label">
@@ -25,175 +21,63 @@
     </div>
 
 
-    <!-- =====================================================
-         CONTACT GRID
-         ===================================================== -->
-
     <div class="contact-grid">
-
-
-      <!-- ===================================================
-           LEFT — CONTACT INFORMATION
-           =================================================== -->
 
       <div class="contact-info">
 
-        <div class="contact-intro">
+        <h3>
+          Get in touch
+        </h3>
 
-          <div class="contact-status">
-            <span class="status-dot"></span>
-            Open to opportunities
-          </div>
+        <p>
+          I'm interested in software development opportunities,
+          full-stack projects, internships, and technical
+          collaborations.
+        </p>
 
-          <h3>
-            Get in touch
-          </h3>
+
+        <div class="contact-detail">
+
+          <span class="contact-detail-label">
+            Email
+          </span>
+
+          <a href="mailto:Yash.gupta291206@gmail.com">
+
+            Yash.gupta291206@gmail.com
+
+          </a>
+
+          <span class="contact-detail-label">
+            phone
+          </span>
+
+          <a href="tel:+919987019301">
+
+            +91 9987019301
+
+          </a>
+
+        </div>
+
+
+        <div class="contact-detail">
+
+          <span class="contact-detail-label">
+            Location
+          </span>
 
           <p>
-            I'm interested in software development opportunities,
-            full-stack projects, internships, and technical
-            collaborations.
+            Mumbai, Maharashtra, India
           </p>
-
-        </div>
-
-
-        <!-- =================================================
-             CONTACT DETAILS
-             ================================================= -->
-
-        <div class="contact-details">
-
-          <div class="contact-detail">
-
-            <span class="contact-detail-label">
-              Email
-            </span>
-
-            <a href="mailto:Yash.gupta291206@gmail.com">
-              Yash.gupta291206@gmail.com
-            </a>
-
-          </div>
-
-
-          <div class="contact-detail">
-
-            <span class="contact-detail-label">
-              Phone
-            </span>
-
-            <a href="tel:+919987019301">
-              +91 9987019301
-            </a>
-
-          </div>
-
-
-          <div class="contact-detail">
-
-            <span class="contact-detail-label">
-              Location
-            </span>
-
-            <p>
-              Mumbai, Maharashtra, India
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <!-- =================================================
-             CONNECT
-             ================================================= -->
-
-        <div class="contact-connect">
-
-          <span class="contact-detail-label">
-            Connect
-          </span>
-
-          <div class="social-links">
-
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              <span>GitHub</span>
-              <span class="social-arrow">↗</span>
-            </a>
-
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              <span>LinkedIn</span>
-              <span class="social-arrow">↗</span>
-            </a>
-
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              <span>LeetCode</span>
-              <span class="social-arrow">↗</span>
-            </a>
-
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              <span>Codolio</span>
-              <span class="social-arrow">↗</span>
-            </a>
-
-          </div>
-
-        </div>
-
-
-        <!-- =================================================
-             INTERESTS
-             ================================================= -->
-
-        <div class="contact-interests">
-
-          <span class="contact-detail-label">
-            Interested in
-          </span>
-
-          <div class="interest-tags">
-
-            <span>Java Development</span>
-            <span>Spring Boot</span>
-            <span>Full Stack Projects</span>
-            <span>Internships</span>
-            <span>Backend Development</span>
-
-          </div>
 
         </div>
 
       </div>
 
 
-      <!-- ===================================================
-           RIGHT — CONTACT FORM
-           =================================================== -->
-
       <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="submitForm()">
 
-        <div class="form-header">
-
-          <p class="form-label">
-            SEND A MESSAGE
-          </p>
-
-          <h3>
-            Tell me about your
-            <span>idea.</span>
-          </h3>
-
-          <p>
-            I'll get back to you as soon as possible.
-          </p>
-
-        </div>
-
-
-        <!-- =================================================
-             NAME
-             ================================================= -->
 
         <div class="form-group">
 
@@ -202,6 +86,7 @@
           </label>
 
           <input id="name" type="text" formControlName="name" placeholder="Your name">
+
 
           @if (
           contactForm.controls.name.touched &&
@@ -229,10 +114,6 @@
         </div>
 
 
-        <!-- =================================================
-             EMAIL
-             ================================================= -->
-
         <div class="form-group">
 
           <label for="email">
@@ -240,6 +121,7 @@
           </label>
 
           <input id="email" type="email" formControlName="email" placeholder="your@email.com">
+
 
           @if (
           contactForm.controls.email.touched &&
@@ -267,17 +149,15 @@
         </div>
 
 
-        <!-- =================================================
-             MESSAGE
-             ================================================= -->
-
         <div class="form-group">
 
           <label for="message">
             Message
           </label>
 
-          <textarea id="message" rows="6" formControlName="message" placeholder="Write your message..."></textarea>
+          <textarea id="message" rows="6" formControlName="message" placeholder="Write your message...">
+          </textarea>
+
 
           @if (
           contactForm.controls.message.touched &&
@@ -305,10 +185,6 @@
         </div>
 
 
-        <!-- =================================================
-             SUCCESS MESSAGE
-             ================================================= -->
-
         @if (successMessage) {
 
         <div class="form-success">
@@ -317,10 +193,6 @@
 
         }
 
-
-        <!-- =================================================
-             ERROR MESSAGE
-             ================================================= -->
 
         @if (errorMessage) {
 
@@ -331,20 +203,12 @@
         }
 
 
-        <!-- =================================================
-             SUBMIT
-             ================================================= -->
-
         <button type="submit" class="contact-submit" [disabled]="isSubmitting">
 
           @if (isSubmitting) {
-
           Sending...
-
           } @else {
-
           Send Message
-
           }
 
         </button>

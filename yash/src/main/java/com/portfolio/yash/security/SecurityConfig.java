@@ -71,7 +71,8 @@ public class SecurityConfig {
                 )
 
                 .authorizeHttpRequests(auth -> auth
-
+                        // Health check
+                        .requestMatchers("/health").permitAll()
                         // Authentication
                         .requestMatchers(
                                 "/api/auth/**"

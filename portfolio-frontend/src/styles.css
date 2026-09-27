@@ -58,6 +58,20 @@
 
   --container-width: 1200px;
 
+  /*
+     Reduced horizontal spacing.
+
+     Previous:
+     calc(100% - 80px)
+
+     Now:
+     calc(100% - 48px)
+
+     Result:
+     24px left + 24px right
+  */
+  --container-side-space: 24px;
+
   --section-padding-desktop: 120px;
   --section-padding-mobile: 90px;
 
@@ -165,14 +179,29 @@ section {
   background: var(--background);
 }
 
+
+/*
+   MAIN CONTENT CONTAINER
+
+   Desktop:
+   24px left + 24px right
+
+   This replaces the previous 40px left/right spacing.
+*/
+
 .section-container {
   width: min(
     var(--container-width),
-    calc(100% - 80px)
+    calc(100% - (var(--container-side-space) * 2))
   );
 
   margin: 0 auto;
 }
+
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
 
 .section-heading {
   margin-bottom: 60px;
@@ -369,29 +398,41 @@ button:disabled {
 
 
 /* =========================================================
-   RESPONSIVE
+   RESPONSIVE — LARGE TABLETS / SMALL DESKTOP
    ========================================================= */
 
 @media (max-width: 1100px) {
 
+  :root {
+    --container-side-space: 20px;
+  }
+
   .section-container {
     width: min(
-      100% - 60px,
-      var(--container-width)
+      var(--container-width),
+      calc(100% - (var(--container-side-space) * 2))
     );
   }
 
 }
 
 
+/* =========================================================
+   RESPONSIVE — TABLET / MOBILE
+   ========================================================= */
+
 @media (max-width: 768px) {
+
+  :root {
+    --container-side-space: 16px;
+  }
 
   html {
     scroll-padding-top: 64px;
   }
 
   .section-container {
-    width: calc(100% - 40px);
+    width: calc(100% - (var(--container-side-space) * 2));
   }
 
   .section-heading {
@@ -409,10 +450,18 @@ button:disabled {
 }
 
 
+/* =========================================================
+   RESPONSIVE — SMALL MOBILE
+   ========================================================= */
+
 @media (max-width: 480px) {
 
+  :root {
+    --container-side-space: 12px;
+  }
+
   .section-container {
-    width: calc(100% - 30px);
+    width: calc(100% - (var(--container-side-space) * 2));
   }
 
   .section-heading h2 {
@@ -421,6 +470,27 @@ button:disabled {
 
   .section-description {
     font-size: 15px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL DEVICES
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  :root {
+    --container-side-space: 10px;
+  }
+
+  .section-container {
+    width: calc(100% - (var(--container-side-space) * 2));
+  }
+
+  .section-heading h2 {
+    font-size: 34px;
   }
 
 }

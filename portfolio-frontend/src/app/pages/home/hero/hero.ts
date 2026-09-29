@@ -6,6 +6,7 @@ import {
 
 import { Api } from '../../../core/services/api';
 import { Portfolio } from '../../../models/portfolio.model';
+import { AcademicDetail } from '../../../models/academic.model';
 
 @Component({
   selector: 'app-hero',
@@ -20,19 +21,32 @@ export class Hero {
 
   portfolio: Portfolio | null = null;
 
+  currentCgpa: string = '—';
+
+
   constructor() {
+
     this.loadPortfolio();
+
+    this.loadCurrentCgpa();
+
   }
+
+
+  /* =========================================================
+     LOAD PORTFOLIO
+     ========================================================= */
 
   loadPortfolio(): void {
 
     this.api.getPortfolio().subscribe({
 
-      next: (data) => {
+      next: (data: Portfolio) => {
 
         this.portfolio = data;
 
         this.cdr.markForCheck();
+
       },
 
       error: (error) => {
@@ -43,10 +57,83 @@ export class Hero {
         );
 
         this.cdr.markForCheck();
+
       }
 
     });
+
   }
+
+
+  /* =========================================================
+     LOAD CURRENT CGPA
+     ========================================================= */
+
+  loadCurrentCgpa(): void {
+
+    this.api.getAcademics().subscribe({
+
+      next: (data: AcademicDetail[]) => {
+
+        /*
+         * Find the current Computer Engineering
+         * academic record.
+         *
+         * This looks for an academic record containing
+         * Computer Engineering or TCET.
+         */
+
+        const currentAcademic = data.find(
+          (academic) => {
+
+            const institution =
+              academic.institutionName?.toLowerCase() ?? '';
+
+            const degree =
+              academic.degree?.toLowerCase() ?? '';
+
+            return (
+              institution.includes('thakur') ||
+              institution.includes('tcet') ||
+              degree.includes('computer engineering')
+            );
+
+          }
+        );
+
+
+        if (currentAcademic?.grade) {
+
+          this.currentCgpa = currentAcademic.grade;
+
+        }
+
+
+        this.cdr.markForCheck();
+
+      },
+
+      error: (error) => {
+
+        console.error(
+          'Failed to load current CGPA:',
+          error
+        );
+
+        this.currentCgpa = '—';
+
+        this.cdr.markForCheck();
+
+      }
+
+    });
+
+  }
+
+
+  /* =========================================================
+     SCROLL TO PROJECTS
+     ========================================================= */
 
   scrollToProjects(): void {
 
@@ -55,7 +142,13 @@ export class Hero {
       ?.scrollIntoView({
         behavior: 'smooth'
       });
+
   }
+
+
+  /* =========================================================
+     SCROLL TO CONTACT
+     ========================================================= */
 
   scrollToContact(): void {
 
@@ -64,5 +157,7 @@ export class Hero {
       ?.scrollIntoView({
         behavior: 'smooth'
       });
+
   }
+
 }

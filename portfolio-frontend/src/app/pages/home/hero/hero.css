@@ -191,6 +191,22 @@
   transform: translateY(-2px);
 }
 
+.resume-button {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.resume-button span {
+  font-size: 14px;
+  transition: transform 0.2s ease;
+}
+
+.resume-button:hover span {
+  transform: translate(2px, -2px);
+}
 
 /* =========================================================
    HERO STATS

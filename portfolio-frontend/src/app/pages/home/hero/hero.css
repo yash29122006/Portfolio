@@ -198,52 +198,49 @@
 
 .hero-stats {
   display: flex;
-
-  align-items: center;
-
-  gap: 0;
-
+  align-items: stretch;
   margin-top: 46px;
 }
 
-
 .hero-stat {
+  min-width: 105px;
   display: flex;
-
   flex-direction: column;
-
-  gap: 3px;
-
-  min-width: 90px;
+  justify-content: center;
+  gap: 4px;
+  position: relative;
 }
-
 
 .hero-stat strong {
   color: var(--text-primary);
-
   font-size: 18px;
-
   line-height: 1.2;
-
   font-weight: 700;
+  white-space: nowrap;
 }
-
 
 .hero-stat span {
   color: var(--text-muted);
-
   font-size: 12px;
-
   line-height: 1.4;
+  white-space: nowrap;
 }
 
-
+/* Separator */
 .hero-stat + .hero-stat {
-  margin-left: 0;
+  margin-left: 28px;
+  padding-left: 28px;
+}
 
-  padding-left: 20px;
-
-  border-left: 1px solid var(--border);
+.hero-stat + .hero-stat::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 30px;
+  background: var(--border);
 }
 
 

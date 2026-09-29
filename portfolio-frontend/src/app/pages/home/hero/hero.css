@@ -213,6 +213,8 @@
   flex-direction: column;
 
   gap: 3px;
+
+  min-width: 90px;
 }
 
 
@@ -237,9 +239,9 @@
 
 
 .hero-stat + .hero-stat {
-  margin-left: 28px;
+  margin-left: 0;
 
-  padding-left: 28px;
+  padding-left: 20px;
 
   border-left: 1px solid var(--border);
 }
